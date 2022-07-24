@@ -44,13 +44,13 @@ const projects = [
 const tasks = [
   {
     id: '1',
-    projectId: '1',
+    projectId: '2',
     status: 'In Progress',
     todo: 'plan project1',
   },
   {
     id: '2',
-    projectId: '2',
+    projectId: '1',
     status: 'In Progress',
     todo: 'plan project2',
   },

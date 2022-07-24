@@ -15,6 +15,13 @@ const ProjectType = new GraphQLObjectType({
     name: { type: GraphQLString },
     description: { type: GraphQLString },
     status: { type: GraphQLString },
+    todos: {
+      type: new GraphQLList(TaskType),
+      resolve(parent, args) {
+        const todos = tasks.filter((task) => task.projectId === parent.id)
+        return todos
+      },
+    },
   }),
 })
 //create task type
