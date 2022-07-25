@@ -1,4 +1,7 @@
-const { projects, tasks } = require('../sampleData.js')
+// const { projects, tasks } = require('../sampleData.js')
+//mongoose models
+const Project = require('../models/Project')
+const Task = require('../models/Task')
 const {
   GraphQLObjectType,
   GraphQLString,
@@ -18,8 +21,9 @@ const ProjectType = new GraphQLObjectType({
     todos: {
       type: new GraphQLList(TaskType),
       resolve(parent, args) {
-        const todos = tasks.filter((task) => task.projectId === parent.id)
-        return todos
+        return Task.filter((task) => task.projectId === parent.id)
+        // const todos = tasks.filter((task) => task.projectId === parent.id)
+        // return todos
       },
     },
   }),
@@ -34,7 +38,8 @@ const TaskType = new GraphQLObjectType({
     project: {
       type: ProjectType,
       resolve(parent, args) {
-        return projects.find((project) => project.id === parent.projectId)
+        return Project.findById(parent.projectId)
+        // return projects.find((project) => project.id === parent.projectId)
       },
     },
   }),
@@ -46,27 +51,29 @@ const RootQuery = new GraphQLObjectType({
     projects: {
       type: new GraphQLList(ProjectType),
       resolve(parent, args) {
-        return projects
+        return Project.find()
       },
     },
     project: {
       type: ProjectType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        return projects.find((project) => project.id === args.id)
+        return Project.findById(args.id)
+        // return projects.find((project) => project.id === args.id)
       },
     },
     tasks: {
       type: new GraphQLList(TaskType),
       resolve(parent, args) {
-        return tasks
+        return Task.find()
       },
     },
     task: {
       type: TaskType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        return tasks.find((task) => task.id === args.id)
+        return Task.findById(args.id)
+        // return tasks.find((task) => task.id === args.id)
       },
     },
   },
