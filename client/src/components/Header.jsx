@@ -10,9 +10,9 @@ function Header() {
               alt="logo"
               width="50"
               height="50"
-              class="d-inline-block align-text-center"
+              className="d-inline-block align-text-center"
             />
-            Deskwork Timer
+            DeskworkFlow
           </a>
         </div>
       </nav>

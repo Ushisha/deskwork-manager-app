@@ -26,6 +26,11 @@ export default function ProjectRow({ project }) {
       <td>{project.description}</td>
       <td>{project.status}</td>
       <td>
+        <a className="btn btn-light" href={`/projects/${project.id}`}>
+          view
+        </a>
+      </td>
+      <td>
         <button
           className="btn btn-outline-danger btn-sm"
           onClick={deleteProject}

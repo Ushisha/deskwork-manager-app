@@ -1,3 +1,16 @@
+:root {
+  --green-light: rgb(59, 247, 209);
+  --blue-light: rgb(1, 206, 255);
+  --purple-light: rgb(161, 119, 255);
+  --yellow-light: rgb(255, 210, 1);
+  --pink-light: rgb(255, 109, 146);
+  --green: rgb(59, 232, 176);
+  --blue: rgb(26, 175, 208);
+  --purple: rgb(106, 103, 206);
+  --yellow: rgb(255, 185, 1);
+  --pink: rgb(252, 99, 107);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -13,7 +26,7 @@ code {
 }
 
 .navbar-brand {
-  color: rgb(26, 217, 241);
+  color: var(--blue);
 }
 
 /* .navbar-brand img {
@@ -23,26 +36,31 @@ code {
 
 .btn {
   font-size: 15px;
+  border: none;
+}
+.btn:hover {
+  font-size: 15px;
 }
 
 .btn-primary,
 .bg-primary {
-  background-color: #df3ca6 !important;
+  background-color: var(--pink) !important;
   border: none;
 }
 
 .btn-primary:hover {
-  background-color: rgb(26, 217, 241);
-  opacity: 0.9;
+  background-color: var(--pink);
+  opacity: 0.8;
 }
 
 .btn-secondary {
-  background-color: #7430f9;
+  background-color: var(--purple);
+  border: none;
 }
 
 .btn-secondary:hover {
-  background-color: #7430f9;
-  opacity: 0.9;
+  background-color: var(--purple);
+  opacity: 0.8;
 }
 
 .icon {

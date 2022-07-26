@@ -1,7 +1,9 @@
 import Header from './components/Header'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import AddProjectModal from './components/AddProjectModal'
 import { ApolloProvider, InMemoryCache, ApolloClient } from '@apollo/client'
 import Projects from './components/Projects'
-
+import Tasks from './components/Tasks'
 const cache = new InMemoryCache({
   typePolicies: {
     Query: {
@@ -30,10 +32,14 @@ function App() {
   return (
     <>
       <ApolloProvider client={client}>
-        <Header />
-        <div className="container">
-          <Projects />
-        </div>
+        <Router>
+          <Header />
+          <div className="container">
+            <AddProjectModal />
+            <Projects />
+            <Tasks />
+          </div>
+        </Router>
       </ApolloProvider>
     </>
   )

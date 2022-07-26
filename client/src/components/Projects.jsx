@@ -6,6 +6,7 @@ import Spinner from './Spinner'
 import { useQuery } from '@apollo/client'
 
 export default function Projects() {
+  // eslint-disable-next-line
   const { loading, error, data } = useQuery(GET_PROJECTS)
 
   if (loading) return <Spinner />
@@ -23,10 +24,14 @@ export default function Projects() {
             <th></th>
           </tr>
         </thead>
+
         <tbody>
-          {data.projects.map((project) => (
-            <ProjectRow project={project} key={project.id} />
-          ))}
+          {
+            // eslint-disable-next-line
+            data.projects.map((project) => (
+              <ProjectRow project={project} key={project.id} />
+            ))
+          }
         </tbody>
       </table>
     )
