@@ -10,7 +10,6 @@ const {
   GraphQLList,
   GraphQLNonNull,
   GraphQLEnumType,
-  GraphQLInputObjectType,
 } = require('graphql')
 
 //create project type
@@ -159,7 +158,7 @@ const mutation = new GraphQLObjectType({
             name: 'ProjectStatusUpdate',
             values: {
               new: { value: 'Not Started' },
-              progress: { value: 'In progress' },
+              progress: { value: 'In Progress' },
               completed: { value: 'Completed' },
             },
           }),
