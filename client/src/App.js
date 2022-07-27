@@ -1,9 +1,9 @@
 import Header from './components/Header'
+import NotFound from './pages/NotFound'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import AddProjectModal from './components/AddProjectModal'
+import Project from './pages/Project'
 import { ApolloProvider, InMemoryCache, ApolloClient } from '@apollo/client'
-import Projects from './components/Projects'
-import Tasks from './components/Tasks'
+import Home from './pages/Home'
 const cache = new InMemoryCache({
   typePolicies: {
     Query: {
@@ -35,9 +35,11 @@ function App() {
         <Router>
           <Header />
           <div className="container">
-            <AddProjectModal />
-            <Projects />
-            <Tasks />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="*" element={<NotFound />} />
+              <Route path="/projects/:id" element={<Project />} />
+            </Routes>
           </div>
         </Router>
       </ApolloProvider>

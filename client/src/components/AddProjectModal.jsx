@@ -5,9 +5,10 @@ import { ADD_PROJECT } from '../mutations/projectMutations'
 import { GET_PROJECTS } from '../queries/projectQueries'
 
 export default function AddProjectModal() {
+  //get values from form
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
-  const [status, setStatus] = useState('Choose...')
+  const [status, setStatus] = useState('new')
 
   const [addProject] = useMutation(ADD_PROJECT, {
     variables: { name, description, status },
@@ -23,15 +24,14 @@ export default function AddProjectModal() {
   const onSubmit = (e) => {
     e.preventDefault()
 
-    if (name === '' || description === '' || status === 'Choose...') {
+    if (name === '' || description === '' || status === '') {
       return alert('Please fill in the all fields')
     }
-    console.log(name, description, status)
 
     addProject(name, description, status)
     setName('')
     setDescription('')
-    setStatus('Choose...')
+    setStatus('new')
   }
   return (
     <>
@@ -97,10 +97,9 @@ export default function AddProjectModal() {
                     value={status}
                     onChange={(e) => setStatus(e.target.value)}
                   >
-                    <option>Choose...</option>
-                    <option>new</option>
-                    <option>In Progress</option>
-                    <option>Completed</option>
+                    <option value="new">Not started</option>
+                    <option value="progress">In Progress</option>
+                    <option value="completed">Completed</option>
                   </select>
                 </div>
                 <div className="mt-4">

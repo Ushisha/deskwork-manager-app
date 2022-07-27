@@ -6,7 +6,28 @@ const GET_TASKS = gql`
       id
       todo
       status
+      project {
+        id
+        name
+        description
+        status
+      }
     }
   }
 `
-export { GET_TASKS }
+const GET_TASK = gql`
+  query getTask($id: ID!) {
+    task(id: $id) {
+      id
+      todo
+      status
+      project {
+        id
+        name
+        description
+        status
+      }
+    }
+  }
+`
+export { GET_TASKS, GET_TASK }
