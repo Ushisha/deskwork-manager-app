@@ -1,18 +1,17 @@
-import logo from '../assets/logo.png'
+// import logo from '../assets/logo.png'
+import { GiTomato } from 'react-icons/gi'
 function Header() {
   return (
     <>
-      <nav className="navbar bg-light mb-4 p-0">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="/" id="logo">
-            <img
-              src={logo}
-              alt="logo"
-              width="50"
-              height="50"
-              className="d-inline-block align-text-center"
-            />
-            DeskworkFlow
+      <nav className="navbar mb-4 p-0">
+        <div className="container-fluid ">
+          <a
+            className="navbar-brand d-flex align-items-centerf"
+            href="/"
+            id="logo"
+          >
+            <GiTomato className="icon my-auto nav-icon" />
+            <p className="mb-0">DeskworkFlow</p>
           </a>
         </div>
       </nav>

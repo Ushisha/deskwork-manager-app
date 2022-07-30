@@ -1,8 +1,9 @@
 import Spinner from './Spinner'
 import { useQuery } from '@apollo/client'
 import { GET_TASKS } from '../queries/taskQueries'
-import TaskCard from './TaskCard'
-
+import TodoCard from './TodoCard'
+import AddTaskModal from './AddTaskModal'
+import { Link } from 'react-router-dom'
 export default function Tasks() {
   const { loading, error, data } = useQuery(GET_TASKS)
   if (loading) return <Spinner />
@@ -10,15 +11,27 @@ export default function Tasks() {
 
   return (
     <>
-      {data.tasks.length > 0 ? (
-        <div className="row">
-          {data.tasks.map((task) => (
-            <TaskCard key={task.id} task={task} />
-          ))}
+      <div className="card mx-auto w-95 p-4 ">
+        <div className="card-body">
+          <div className="mb-2  align-items-end">
+            <AddTaskModal />
+          </div>
+
+          {data.tasks.length > 0 ? (
+            <div className="row">
+              {data.tasks.map((task) => (
+                <TodoCard key={task.id} task={task} />
+              ))}
+            </div>
+          ) : (
+            <p>No Tasks</p>
+          )}
         </div>
-      ) : (
-        <p>No Tasks</p>
-      )}
+
+        <Link to="/" className="btn btn-project btn-sm w-20 ms-auto">
+          Back
+        </Link>
+      </div>
     </>
   )
 }

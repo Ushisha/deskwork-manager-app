@@ -3,27 +3,28 @@ import { DELETE_PROJECT } from '../mutations/projectMutations'
 
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import { GET_PROJECTS } from '../queries/projectQueries'
-
+import { GET_TASKS } from '../queries/taskQueries'
 export default function ProjectRow({ project }) {
   const [deleteProject] = useMutation(DELETE_PROJECT, {
     variables: { id: project.id },
-    update(cache, { data: { deleteProject } }) {
-      const { projects } = cache.readQuery({ query: GET_PROJECTS })
-      cache.writeQuery({
-        query: GET_PROJECTS,
-        data: {
-          projects: projects.filter(
-            (project) => project.id !== deleteProject.id
-          ),
-        },
-      })
-    },
+    refetchQueries: [{ query: GET_PROJECTS }, { query: GET_TASKS }],
+    // update(cache, { data: { deleteProject } }) {
+    //   const { projects } = cache.readQuery({ query: GET_PROJECTS })
+    //   cache.writeQuery({
+    //     query: GET_PROJECTS,
+    //     data: {
+    //       projects: projects.filter(
+    //         (project) => project.id !== deleteProject.id
+    //       ),
+    //     },
+    //   })
+    // },
   })
 
   return (
     <tr>
       <td>{project.name}</td>
-      <td>{project.description}</td>
+      {/* <td>{project.description}</td> */}
       <td>{project.status}</td>
       <td>
         <a className="btn btn-light" href={`/projects/${project.id}`}>

@@ -30,4 +30,5 @@ const GET_TASK = gql`
     }
   }
 `
+
 export { GET_TASKS, GET_TASK }

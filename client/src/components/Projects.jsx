@@ -19,7 +19,7 @@ export default function Projects() {
         <thead>
           <tr>
             <th scope="col">Title</th>
-            <th scope="col">Description</th>
+            {/* <th scope="col">Description</th> */}
             <th scope="col">Status</th>
             <th></th>
           </tr>

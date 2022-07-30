@@ -5,7 +5,8 @@ import { useQuery } from '@apollo/client'
 import { GET_PROJECT } from '../queries/projectQueries'
 import AddTaskModal from '../components/AddTaskModal'
 import TodoList from '../components/TodoList'
-
+import DeleteProjectBtn from '../components/DeleteProjectBtn'
+import EditProjectForm from '../components/EditProjectForm'
 export default function Project() {
   const { id } = useParams()
   const { loading, error, data } = useQuery(GET_PROJECT, { variables: { id } })
@@ -16,17 +17,23 @@ export default function Project() {
   return (
     <>
       {!loading && !error && (
-        <div className="mx-auto w-95 p-5 card">
-          <h1>{data.project.name}</h1>
-          <p>{data.project.description}</p>
-          <h5 className="mt-3">Project Status</h5>
-          <p className="lead">{data.project.status}</p>
+        <div className="mx-auto w-95 p-4 card">
+          <DeleteProjectBtn projectId={data.project.id} />
           <div className="card-body">
-            <AddTaskModal />
+            <EditProjectForm project={data.project} />
+            <h1>{data.project.name}</h1>
+            <p>{data.project.description}</p>
+            <h4 className="mt-3">Status</h4>
+            <p className="lead">{data.project.status}</p>
+            <div className="d-flex justify-content-between">
+              <h4>Tasks</h4>
+              <AddTaskModal />
+            </div>
+
             <TodoList projectId={data.project.id} />
           </div>
 
-          <Link to="/" className="btn btn-light btn-sm w-20 ms-auto">
+          <Link to="/" className="btn btn-project btn-sm w-20 ms-auto ">
             Back
           </Link>
         </div>

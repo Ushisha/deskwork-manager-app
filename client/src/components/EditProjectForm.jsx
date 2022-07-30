@@ -1,26 +1,30 @@
 import { useState } from 'react'
 import { useMutation } from '@apollo/client'
-import { FaProjectDiagram } from 'react-icons/fa'
-import { ADD_PROJECT } from '../mutations/projectMutations'
-import { GET_PROJECTS } from '../queries/projectQueries'
+import { GET_PROJECT } from '../queries/projectQueries'
+import { UPDATE_PROJECT } from '../mutations/projectMutations'
+import { FaEdit } from 'react-icons/fa'
 
-export default function AddProjectModal() {
-  //get values from form
-  const [name, setName] = useState('')
-  const [description, setDescription] = useState('')
-  const [status, setStatus] = useState('new')
-
-  const [addProject] = useMutation(ADD_PROJECT, {
-    variables: { name, description, status },
-    update(cache, { data: { addProject } }) {
-      const { projects } = cache.readQuery({ query: GET_PROJECTS })
-
-      cache.writeQuery({
-        query: GET_PROJECTS,
-        data: { projects: [...projects, addProject] },
-      })
-    },
+export default function EditProjectForm({ project }) {
+  const [name, setName] = useState(project.name)
+  const [description, setDescription] = useState(project.description)
+  const [status, setStatus] = useState(() => {
+    switch (project.status) {
+      case 'Not Started':
+        return 'new'
+      case 'In Progress':
+        return 'progress'
+      case 'Completed':
+        return 'completed'
+      default:
+        throw new Error(`Unknown status: ${project.status}`)
+    }
   })
+
+  const [updateProject] = useMutation(UPDATE_PROJECT, {
+    variables: { id: project.id, name, description, status },
+    refetchQueries: [{ query: GET_PROJECT, variables: { id: project.id } }],
+  })
+
   const onSubmit = (e) => {
     e.preventDefault()
 
@@ -28,38 +32,34 @@ export default function AddProjectModal() {
       return alert('Please fill in the all fields')
     }
 
-    addProject(name, description, status)
-    setName('')
-    setDescription('')
-    setStatus('new')
+    updateProject(name, description, status)
   }
+
   return (
     <>
       <button
         type="button"
         className="btn btn-secondary"
         data-bs-toggle="modal"
-        data-bs-target="#addProjectModal"
+        data-bs-target="#editProjectModal"
       >
         <div className="d-flex align-items-center">
-          <FaProjectDiagram className="icon" />
-          <div>
-            <small>Create Project</small>
-          </div>
+          <FaEdit className="icon" />
+          <div>Edit Project</div>
         </div>
       </button>
 
       <div
         className="modal fade "
-        id="addProjectModal"
-        aria-labelledby="addProjectModalLabel"
+        id="editProjectModal"
+        aria-labelledby="editProjectModalLabel"
         aria-hidden="true"
       >
         <div className="modal-dialog modal-fullscreen-md-down">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="addProjectModalLabel">
-                Create New Project
+              <h5 className="modal-title" id="editProjectModalLabel">
+                Edit Project
               </h5>
               <button
                 type="button"
@@ -69,6 +69,7 @@ export default function AddProjectModal() {
               ></button>
             </div>
             <div className="modal-body">
+              <h3>Edit Project</h3>
               <form onSubmit={onSubmit}>
                 <div className="mb-3">
                   <label className="form-label">Project Title</label>
@@ -104,6 +105,7 @@ export default function AddProjectModal() {
                     <option value="completed">Completed</option>
                   </select>
                 </div>
+
                 <div className="mt-4">
                   <button
                     type="submit"

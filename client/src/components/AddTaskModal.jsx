@@ -47,13 +47,13 @@ export default function AddTaskModal() {
         <>
           <button
             type="button"
-            className="btn btn-secondary"
+            className="btn btn-primary"
             data-bs-toggle="modal"
             data-bs-target="#addTaskModal"
           >
             <div className="d-flex align-items-center">
               <FaList className="icon" />
-              <div>New Task</div>
+              <div>Add Task</div>
             </div>
           </button>
 
@@ -97,9 +97,9 @@ export default function AddTaskModal() {
                         value={status}
                         onChange={(e) => setStatus(e.target.value)}
                       >
-                        <option>new</option>
-                        <option>progress</option>
-                        <option>completed</option>
+                        <option value="new">Not started</option>
+                        <option value="progress">In Progress</option>
+                        <option value="completed">Completed</option>
                       </select>
                     </div>
                     <div className="mb-3">
@@ -124,7 +124,7 @@ export default function AddTaskModal() {
                         data-bs-dismiss="modal"
                         className="btn btn-primary"
                       >
-                        Submit
+                        Save
                       </button>
                     </div>
                   </form>

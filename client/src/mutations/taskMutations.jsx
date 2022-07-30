@@ -24,15 +24,9 @@ const DELETE_TASK = gql`
 `
 const UPDATE_TASK = gql`
   mutation UpdateTask($id: ID!, $todo: String!, $status: TaskStatusUpdate!) {
-    updateTask(
-      id: $id
-      todo: $todo
-
-      status: $status
-    ) {
+    updateTask(id: $id, todo: $todo, status: $status) {
       id
       todo
-
       status
       project {
         id
