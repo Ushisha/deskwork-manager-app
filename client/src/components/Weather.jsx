@@ -3,7 +3,8 @@ import { useState } from 'react'
 import { fetchWeather } from '../api/fetchWeather'
 import Clock from '../components/Clock'
 import { TiWeatherPartlySunny } from 'react-icons/ti'
-import { GiTomato } from 'react-icons/gi'
+
+import PomoCounter from './PomoCouter'
 
 function Weather() {
   //set searching query by
@@ -78,10 +79,7 @@ function Weather() {
           onChange={(e) => setQuery(e.target.value)}
           onKeyPress={search}
         />
-        <div className="pomo-counter position-relative mx-auto">
-          <GiTomato className="tomato-icon" />
-          <p className="lead counter position-absolute fw-semibold">5</p>
-        </div>
+        <PomoCounter />
       </div>
     </div>
   )

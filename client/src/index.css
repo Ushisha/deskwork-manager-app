@@ -154,7 +154,6 @@ input.task:checked + * {
 /* weather page */
 .weather-card {
   max-width: 20rem;
-  height: 80vh;
 }
 input.search-weather {
   border: none;
@@ -166,9 +165,19 @@ input.search-weather {
 input.search-weather:hover:focus:active {
   cursor: text;
 }
-.pomo-counter {
-  width: 100px;
+//pomodoro display
+div.pomo-display {
   height: 100px;
+  width: 100px;
+}
+.pomo-counter {
+  display: block;
+  height: 100px;
+  width: 100px;
+}
+.icon-container {
+  position: absolute;
+  left: 10px;
 }
 .tomato-icon {
   width: 80px;
@@ -177,8 +186,9 @@ input.search-weather:hover:focus:active {
   opacity: 0.9;
 }
 .counter {
-  color: #fff;
+  position: absolute;
+  color: var(--midnight);
   font-size: 25px;
-  top: 33px;
+  top: 30px;
   left: 42px;
 }
