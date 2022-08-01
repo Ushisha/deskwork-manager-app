@@ -14,8 +14,8 @@ export default function DeleteProjectBtn({ projectId }) {
     refetchQueries: [{ query: GET_PROJECTS }],
   })
   return (
-    <div className="d-flex align-items-center ms-auto">
-      <button className="btn" onClick={deleteProject}>
+    <div className="trash-container">
+      <button className="btn trash-btn" onClick={deleteProject}>
         <RiDeleteBin6Line className="trash-icon" />
       </button>
     </div>

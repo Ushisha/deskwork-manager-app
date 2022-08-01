@@ -39,7 +39,7 @@ export default function EditProjectForm({ project }) {
     <>
       <button
         type="button"
-        className="btn btn-secondary"
+        className="btn btn-secondary my-3"
         data-bs-toggle="modal"
         data-bs-target="#editProjectModal"
       >

@@ -2,6 +2,8 @@
 //mongoose models
 const Project = require('../models/Project')
 const Task = require('../models/Task')
+const Counter = require('../models/Counter')
+
 const {
   GraphQLObjectType,
   GraphQLString,
@@ -10,6 +12,8 @@ const {
   GraphQLList,
   GraphQLNonNull,
   GraphQLEnumType,
+  GraphQLNumber,
+  GraphQLInt,
 } = require('graphql')
 
 //create project type
@@ -42,7 +46,18 @@ const TaskType = new GraphQLObjectType({
     },
   }),
 })
+// create counter type
+const CounterType = new GraphQLObjectType({
+  name: 'Counter',
+  fields: () => ({
+    id: {
+      type: GraphQLID,
+    },
+    count: { type: GraphQLInt, defaultValue: 0 },
+  }),
+})
 
+//define the Query type
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
@@ -72,6 +87,13 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         return Task.findById(args.id)
         // return tasks.find((task) => task.id === args.id)
+      },
+    },
+    counter: {
+      type: CounterType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        return Counter.findById(args.id)
       },
     },
   },
@@ -116,6 +138,12 @@ const mutation = new GraphQLObjectType({
         id: { type: new GraphQLNonNull(GraphQLID) },
       },
       resolve(parent, args) {
+        Task.find({ projectId: args.id }).then((tasks) => {
+          tasks.forEach((task) => {
+            task.remove()
+          })
+        })
+
         return Project.findByIdAndRemove(args.id)
       },
     },
@@ -147,6 +175,15 @@ const mutation = new GraphQLObjectType({
         return task.save()
       },
     },
+    deleteTask: {
+      type: TaskType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+      },
+      resolve(parent, args) {
+        return Task.findByIdAndRemove(args.id)
+      },
+    },
     updateProject: {
       type: ProjectType,
       args: {
@@ -172,6 +209,36 @@ const mutation = new GraphQLObjectType({
               name: args.name,
               description: args.description,
               status: args.status,
+            },
+          },
+          { new: true }
+        )
+      },
+    },
+    addCounter: {
+      type: CounterType,
+      args: {
+        count: { type: new GraphQLNonNull(GraphQLInt) },
+      },
+      resolve(parent, args) {
+        const counter = new Counter({
+          count: args.count,
+        })
+        return counter.save()
+      },
+    },
+    updateCounter: {
+      type: CounterType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+        count: { type: new GraphQLNonNull(GraphQLInt) },
+      },
+      resolve(parent, args) {
+        return Counter.findByIdAndUpdate(
+          args.id,
+          {
+            $set: {
+              count: args.count,
             },
           },
           { new: true }

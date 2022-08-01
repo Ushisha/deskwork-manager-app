@@ -17,7 +17,7 @@ export default function PomoCouter() {
   return (
     <>
       {!loading && !error && (
-        <div className="container pomo-display">
+        <div className="container pomo-display mt-3">
           <div className="pomo-counter position-relative mx-auto">
             <div className="icon-container">
               <GiTomato className="tomato-icon" />

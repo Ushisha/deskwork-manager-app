@@ -22,7 +22,7 @@ export default function ProjectRow({ project }) {
   })
 
   return (
-    <tr>
+    <tr className="project-row">
       <td>{project.name}</td>
       {/* <td>{project.description}</td> */}
       <td>{project.status}</td>

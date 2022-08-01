@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Montserrat+Alternates:wght@500;600;700&family=Nunito:wght@700;800;900&display=swap');
+
 :root {
   --orange: rgb(253, 97, 43);
   --green-light: rgb(59, 247, 209);
@@ -14,13 +15,15 @@
   --text: rgb(46, 60, 84);
   --gray: rgb(239, 240, 241);
   --midnight: rgb(0, 32, 69);
+  --dark-blue: rgb(20, 81, 183);
   --rose-pink: rgb(252, 145, 173);
+  --background: rgb(246, 248, 249);
 }
 
 body {
   margin: 0;
   color: var(--text);
-  background-color: rgb(246, 248, 249);
+  background-color: var(--background);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -47,7 +50,7 @@ code {
 .home {
   background-color: var(--purple-light);
 }
-
+//home page
 h1.projects {
   color: var(--purple);
 }
@@ -82,18 +85,18 @@ input.task:checked + * {
 
 .btn-secondary {
   background-color: var(--midnight);
-  border: none;
+  color: #fff;
 }
 
 .btn-secondary:hover {
-  background-color: var(--yellow);
-  color: var(--midnight);
+  background-color: var(--dark-blue);
 }
+//project page
 .btn-project {
   color: var(--text);
 }
 .btn-project:hover {
-  color: var(--purple-light);
+  color: var(--blue);
 }
 .icon {
   margin-right: 5px;
@@ -105,14 +108,27 @@ input.task:checked + * {
 }
 .delete-icon:hover {
 }
+
+//trash button
+.trash-container {
+  height: 25px;
+}
+button.trash-btn {
+  position: absolute;
+  height: 25px;
+  right: 25px;
+  top: 38px;
+}
 .trash-icon {
   color: var(--text);
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
 }
 
 .trash-icon:hover {
-  color: #dc3545;
+  color: red;
+  width: 25px;
+  height: 25px;
 }
 
 .todo-card {
@@ -152,13 +168,16 @@ input.task:checked + * {
     rgba(17, 122, 255, 1) 100% );*/
 }
 /* weather page */
+.weather-container {
+  border: 2px solid var(--gray);
+}
 .weather-card {
   max-width: 20rem;
 }
 input.search-weather {
   border: none;
   outline: 0;
-  border-bottom: 3px solid var(--green);
+  border-bottom: 2px solid var(--green);
   text-align: center;
   font-size: 0.8em;
 }
@@ -167,12 +186,12 @@ input.search-weather:hover:focus:active {
 }
 //pomodoro display
 div.pomo-display {
-  height: 100px;
+  height: 800px;
   width: 100px;
 }
 .pomo-counter {
   display: block;
-  height: 100px;
+  height: 80px;
   width: 100px;
 }
 .icon-container {
@@ -191,4 +210,42 @@ div.pomo-display {
   font-size: 25px;
   top: 30px;
   left: 42px;
+}
+
+.project-row {
+  background: var(--green);
+  /* justify-content: space-between; */
+  border: none;
+  color: #fff;
+  /* background: linear-gradient(
+    90deg,
+    rgba(255, 118, 20, 1) 0%,
+    rgba(255, 84, 17, 1) 100%
+  ); */
+}
+
+.project-row:nth-child(4n + 1) {
+  background: var(--purple);
+  /* background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  ); */
+}
+
+.project-row:nth-child(4n + 2) {
+  background: var(--rose-pink);
+  /* background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  ); */
+}
+.project-row:nth-child(4n + 3) {
+  background: var(--yellow-light);
+  /* background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  ); */
 }

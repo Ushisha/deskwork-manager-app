@@ -89,7 +89,7 @@ export default function AddTaskModal() {
                       />
                     </div>
 
-                    <div className="col-md-4">
+                    <div className="col-md-4 mb-3">
                       <label className="form-label">Status</label>
                       <select
                         id="status"

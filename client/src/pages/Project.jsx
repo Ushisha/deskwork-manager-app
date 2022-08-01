@@ -17,7 +17,7 @@ export default function Project() {
   return (
     <>
       {!loading && !error && (
-        <div className="mx-auto w-95 p-4 card">
+        <div className="mx-auto w-95 p-4 card position-relative">
           <DeleteProjectBtn projectId={data.project.id} />
           <div className="card-body">
             <EditProjectForm project={data.project} />
@@ -33,7 +33,10 @@ export default function Project() {
             <TodoList projectId={data.project.id} />
           </div>
 
-          <Link to="/" className="btn btn-project btn-sm w-20 ms-auto ">
+          <Link
+            to="/"
+            className="btn btn-project btn-sm w-20 ms-auto fw-semibold "
+          >
             Back
           </Link>
         </div>

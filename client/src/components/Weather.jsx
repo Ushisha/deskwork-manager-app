@@ -39,46 +39,48 @@ function Weather() {
     <div className="card text-center mx-auto weather-card mb-5">
       <div className="card-body">
         <Clock />
+        <div className="container weather-container mt-3 pt-3">
+          {weather.main && (
+            <div className="city">
+              <p className="lead mb-0">
+                {Math.round(weather.main.temp)}
+                &deg;C
+              </p>
+              <p className="lead mb-0">
+                <span>{weather.name}, </span>
+                {weather.sys.country}
+              </p>
 
-        {weather.main && (
-          <div className="city">
-            <p className="lead mb-0">
-              {Math.round(weather.main.temp)}
-              &deg;C
-            </p>
-            <p className="lead mb-0">
-              <span>{weather.name}, </span>
-              {weather.sys.country}
-            </p>
-
-            <div className="info">
-              {/* <p>max : {Math.round(weather.main.temp_max)}&deg;C</p>
+              <div className="info">
+                {/* <p>max : {Math.round(weather.main.temp_max)}&deg;C</p>
               <p>min : {Math.round(weather.main.temp_min)}&deg;C</p> */}
-              <p className="m-0">
-                <small>Humidity : {weather.main.humidity}%</small>
-              </p>
-              <p className="m-0">
-                <small>
-                  Feels like {Math.round(weather.main.feels_like)}&deg;C
-                </small>
-              </p>
-              <p className="m-0">
-                <small>{weather.weather[0].main}</small>
-              </p>
-              <p className="m-0 text-capitalize">
-                <small>{weather.weather[0].description}</small>
-              </p>
+                <p className="m-0">
+                  <small>Humidity : {weather.main.humidity}%</small>
+                </p>
+                <p className="m-0">
+                  <small>
+                    Feels like {Math.round(weather.main.feels_like)}&deg;C
+                  </small>
+                </p>
+                <p className="m-0">
+                  <small>{weather.weather[0].main}</small>
+                </p>
+                <p className="m-0 text-capitalize">
+                  <small>{weather.weather[0].description}</small>
+                </p>
+              </div>
             </div>
-          </div>
-        )}
-        <input
-          type="text"
-          className="search-weather mb-3"
-          placeholder="Enter city to check "
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          onKeyPress={search}
-        />
+          )}
+          <input
+            type="text"
+            className="search-weather mb-3"
+            placeholder="Enter city to check "
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyPress={search}
+          />
+        </div>
+
         <PomoCounter />
       </div>
     </div>
