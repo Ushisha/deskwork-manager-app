@@ -5,7 +5,7 @@ const GET_TASKS = gql`
     tasks {
       id
       todo
-      status
+      isCompleted
       project {
         id
         name
@@ -20,7 +20,7 @@ const GET_TASK = gql`
     task(id: $id) {
       id
       todo
-      status
+      isCompleted
       project {
         id
         name

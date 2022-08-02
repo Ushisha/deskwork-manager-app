@@ -8,11 +8,11 @@ import { GET_PROJECTS } from '../queries/projectQueries'
 export default function AddTaskModal() {
   //get task values from form
   const [todo, setTodo] = useState('')
-  const [status, setStatus] = useState('new')
+  const [isCompleted, setIsCompleted] = useState(false)
   const [projectId, setProjectId] = useState('')
 
   const [addTask] = useMutation(ADD_TASK, {
-    variables: { todo, status, projectId },
+    variables: { todo, isCompleted, projectId },
     update(cache, { data: { addTask } }) {
       const { tasks } = cache.readQuery({ query: GET_TASKS })
 
@@ -34,12 +34,12 @@ export default function AddTaskModal() {
     if (todo === '' || projectId === '') {
       return alert('Please fill in the all fields')
     }
-    console.log(todo, status, projectId)
+    console.log(todo, isCompleted, projectId)
 
-    addTask(todo, status, projectId)
+    addTask(todo, isCompleted, projectId)
     setTodo('')
     setProjectId('')
-    setStatus('new')
+    setIsCompleted(false)
   }
   return (
     <>
@@ -89,7 +89,7 @@ export default function AddTaskModal() {
                       />
                     </div>
 
-                    <div className="col-md-4 mb-3">
+                    {/* <div className="col-md-4 mb-3">
                       <label className="form-label">Status</label>
                       <select
                         id="status"
@@ -101,7 +101,7 @@ export default function AddTaskModal() {
                         <option value="progress">In Progress</option>
                         <option value="completed">Completed</option>
                       </select>
-                    </div>
+                    </div> */}
                     <div className="mb-3">
                       <label className="form-label">Project</label>
                       <select

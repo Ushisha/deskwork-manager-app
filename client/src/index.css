@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Montserrat+Alternates:wght@500;600;700&family=Nunito:wght@700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
 
 :root {
   --orange: rgb(253, 97, 43);
   --green-light: rgb(59, 247, 209);
   --blue-light: rgb(1, 206, 255);
   --purple-light: rgb(161, 119, 255);
-  --yellow-light: rgb(255, 210, 1);
+
   --pink-light: rgb(255, 109, 146);
   --green: rgb(59, 232, 176);
   --blue: rgb(26, 175, 208);
@@ -16,8 +17,12 @@
   --gray: rgb(239, 240, 241);
   --midnight: rgb(0, 32, 69);
   --dark-blue: rgb(20, 81, 183);
-  --rose-pink: rgb(252, 145, 173);
   --background: rgb(246, 248, 249);
+
+  --sky-blue: rgb(65, 134, 224);
+  --lilac: rgb(227, 98, 227);
+  --sunflower: rgb(255, 226, 2);
+  --rose-pink: rgb(252, 145, 173);
 }
 
 body {
@@ -131,6 +136,12 @@ button.trash-btn {
   width: 25px;
   height: 25px;
 }
+a.btn-view {
+  color: #fff;
+}
+a.bn-view:hover {
+  cursor: pointer;
+}
 
 .todo-card {
   background: var(--green);
@@ -202,7 +213,7 @@ div.pomo-display {
 .tomato-icon {
   width: 80px;
   height: 80px;
-  color: var(--pink);
+  color: var(--orange);
   opacity: 0.9;
 }
 .counter {
@@ -212,9 +223,12 @@ div.pomo-display {
   top: 30px;
   left: 42px;
 }
-
+.project-row:hover {
+  font-size: 1.1em;
+  border-bottom: 1px solid white;
+}
 .project-row {
-  background: var(--green);
+  background: var(--sunflower);
   /* justify-content: space-between; */
   border: none;
   color: #fff;
@@ -225,7 +239,7 @@ div.pomo-display {
   ); */
 }
 
-.project-row:nth-child(4n + 1) {
+.project-row:nth-child(5n + 1) {
   background: var(--purple);
   /* background: linear-gradient(
     90deg,
@@ -234,16 +248,24 @@ div.pomo-display {
   ); */
 }
 
-.project-row:nth-child(4n + 2) {
-  background: var(--rose-pink);
+.project-row:nth-child(5n + 2) {
+  background: var(--pink-light);
   /* background: linear-gradient(
     90deg,
     rgba(93, 12, 255, 1) 0%,
     rgba(155, 0, 250, 1) 100%
   ); */
 }
-.project-row:nth-child(4n + 3) {
-  background: var(--yellow-light);
+.project-row:nth-child(5n + 3) {
+  background: #2ccafa;
+  /* background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  ); */
+}
+.project-row:nth-child(5n + 4) {
+  background: var(--green);
   /* background: linear-gradient(
     90deg,
     rgba(93, 12, 255, 1) 0%,
@@ -282,11 +304,11 @@ div.pomo-display {
 .timer--label {
   color: #fff;
   position: absolute;
-  left: 105px;
+  left: 100px;
   top: 140px;
 }
 h1.time {
-  font-size: 45px;
+  font-size: 50px;
 }
 div.btn__section {
   position: relative;
@@ -294,4 +316,9 @@ div.btn__section {
 .fade,
 .modal-open {
   positon: relative;
+}
+.tomato {
+  color: #fd612b;
+  height: 35px;
+  width: 35px;
 }

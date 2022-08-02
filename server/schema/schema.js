@@ -13,6 +13,7 @@ const {
   GraphQLNonNull,
   GraphQLEnumType,
   GraphQLNumber,
+  GraphQLBoolean,
   GraphQLInt,
 } = require('graphql')
 
@@ -36,7 +37,7 @@ const TaskType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     todo: { type: GraphQLString },
-    status: { type: GraphQLString },
+    isCompleted: { type: GraphQLBoolean },
     project: {
       type: ProjectType,
       resolve(parent, args) {
@@ -152,23 +153,16 @@ const mutation = new GraphQLObjectType({
       type: TaskType,
       args: {
         todo: { type: new GraphQLNonNull(GraphQLString) },
-        status: {
-          type: new GraphQLEnumType({
-            name: 'TaskStatus',
-            values: {
-              new: { value: 'Not Started' },
-              progress: { value: 'In Progress' },
-              completed: { value: 'Completed' },
-            },
-          }),
-          defaultValue: 'Not started',
+        isCompleted: {
+          type: new GraphQLNonNull(GraphQLBoolean),
+          defaultValue: false,
         },
         projectId: { type: new GraphQLNonNull(GraphQLID) },
       },
       resolve(parent, args) {
         const task = new Task({
           todo: args.todo,
-          status: args.status,
+          isCompleted: args.isCompleted,
           projectId: args.projectId,
         })
 

@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/client'
 import { DELETE_PROJECT } from '../mutations/projectMutations'
-
+import { BiDetail } from 'react-icons/bi'
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import { GET_PROJECTS } from '../queries/projectQueries'
 import { GET_TASKS } from '../queries/taskQueries'
@@ -24,11 +24,11 @@ export default function ProjectRow({ project }) {
   return (
     <tr className="project-row">
       <td>{project.name}</td>
-      {/* <td>{project.description}</td> */}
+
       <td>{project.status}</td>
       <td>
-        <a className="btn btn-light" href={`/projects/${project.id}`}>
-          view
+        <a className="btn btn-view" href={`/projects/${project.id}`}>
+          <BiDetail />
         </a>
       </td>
       <td>

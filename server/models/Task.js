@@ -4,9 +4,8 @@ const TaskSchema = new mongoose.Schema({
     type: String,
   },
 
-  status: {
-    type: String,
-    enum: ['Not Started', 'In Progress', 'Completed'],
+  isCompleted: {
+    type: Boolean,
   },
   projectId: {
     type: mongoose.Schema.Types.ObjectId,

@@ -15,7 +15,7 @@ export default function Projects() {
   return (
     !loading &&
     !error && (
-      <table className="table table-hover mt-3">
+      <table className="project-table table mt-3">
         <thead>
           <tr>
             <th scope="col">Title</th>

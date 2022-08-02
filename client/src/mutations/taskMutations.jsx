@@ -1,11 +1,11 @@
 import { gql } from '@apollo/client'
 
 const ADD_TASK = gql`
-  mutation AddTask($todo: String!, $status: TaskStatus!, $projectId: ID!) {
-    addTask(todo: $todo, status: $status, projectId: $projectId) {
+  mutation AddTask($todo: String!, $isCompleted: Boolean!, $projectId: ID!) {
+    addTask(todo: $todo, isCompleted: $isCompleted, projectId: $projectId) {
       id
       todo
-      status
+      isCompleted
       project {
         id
         name
@@ -23,11 +23,11 @@ const DELETE_TASK = gql`
   }
 `
 const UPDATE_TASK = gql`
-  mutation UpdateTask($id: ID!, $todo: String!, $status: TaskStatusUpdate!) {
-    updateTask(id: $id, todo: $todo, status: $status) {
+  mutation UpdateTask($id: ID!, $todo: String!, $isCompleted: Boolean!) {
+    updateTask(id: $id, todo: $todo, isCompleted: $isCompleted) {
       id
       todo
-      status
+      isCompleted
       project {
         id
         name
