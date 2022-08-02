@@ -13,12 +13,12 @@ export default function Tasks() {
     <>
       <div className="card mx-auto w-95 p-4 ">
         <div className="card-body">
-          <div className="mb-2  align-items-end">
+          <div className="mb-3 mx-1 align-items-end">
             <AddTaskModal />
           </div>
 
           {data.tasks.length > 0 ? (
-            <div className="row">
+            <div className="row mx-1">
               {data.tasks.map((task) => (
                 <TodoCard key={task.id} task={task} />
               ))}

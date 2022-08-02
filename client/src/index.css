@@ -59,10 +59,10 @@ input.task:checked {
   background-color: var(--pink-light);
   border: none;
 }
-
+/* 
 input.task:checked + * {
   text-decoration: line-through;
-}
+} */
 
 .btn {
   font-size: 15px;
@@ -75,21 +75,21 @@ input.task:checked + * {
 .btn-primary,
 .bg-primary {
   background-color: var(--pink);
-
   border: none;
 }
 
-.btn-primary:hover {
+.btn-primary:hover:focus {
   background-color: var(--midnight);
 }
 
 .btn-secondary {
   background-color: var(--midnight);
   color: #fff;
+  outline: none;
 }
 
 .btn-secondary:hover {
-  background-color: var(--dark-blue);
+  background-color: var(--pink);
 }
 //project page
 .btn-project {
@@ -107,6 +107,7 @@ input.task:checked + * {
   color: #fff;
 }
 .delete-icon:hover {
+  color: var(--midnight);
 }
 
 //trash button
@@ -248,4 +249,49 @@ div.pomo-display {
     rgba(93, 12, 255, 1) 0%,
     rgba(155, 0, 250, 1) 100%
   ); */
+}
+
+/* Timer */
+.btn-refresh {
+  color: var(--text);
+
+  border: 1px solid var(--midnight);
+}
+.btn-refresh:hover {
+  background-color: var(--green);
+  border: 1px solid var(--green);
+}
+
+.refresh-icon {
+  height: 17px;
+  width: 17px;
+}
+
+.btn-play-pause:hover {
+  cursor: pointer;
+}
+.play-icon:hover {
+  fill: var(--pink);
+}
+
+.main__section--title {
+  position: relative;
+  width: 350px;
+  height: 350px;
+}
+.timer--label {
+  color: #fff;
+  position: absolute;
+  left: 105px;
+  top: 140px;
+}
+h1.time {
+  font-size: 45px;
+}
+div.btn__section {
+  position: relative;
+}
+.fade,
+.modal-open {
+  positon: relative;
 }

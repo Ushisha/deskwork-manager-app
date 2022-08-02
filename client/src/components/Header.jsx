@@ -32,7 +32,7 @@ function Header() {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/pomodo">
+                <a class="nav-link" href="/pomodoro">
                   Pomodoro
                 </a>
               </li>
