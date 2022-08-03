@@ -23,8 +23,8 @@ export default function CounterRestBtn({ id }) {
 
   return (
     <>
-      <button className="btn" onClick={handleReset}>
-        reset
+      <button className="btn btn-reset" onClick={handleReset}>
+        Reset Count
       </button>
     </>
   )

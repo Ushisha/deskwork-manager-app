@@ -7,9 +7,9 @@ import PomoConfig from './PomoConfig'
 // Importing the useSound Hooks
 import useSound from 'use-sound'
 //Importing the sounds
-import startTimer from '../sounds/startTimer.mp3'
-import bowl from '../sounds/bowl.mp3'
-import timesUp from '../sounds/timesUp.mp3'
+import startTimer from '../assets/sounds/startTimer.mp3'
+import pause from '../assets/sounds/pause.mp3'
+import timesUp from '../assets/sounds/timesUp.mp3'
 import { GrRefresh } from 'react-icons/gr'
 import TomatoCase from './TomatoCase'
 
@@ -32,7 +32,7 @@ export default function PomoTimer(props) {
    * All about the sounds
    */
   const [_startTimer] = useSound(startTimer)
-  const [_pauseTimer] = useSound(bowl)
+  const [_pauseTimer] = useSound(pause)
   const [_timesUp] = useSound(timesUp)
 
   const [count, setCount] = useState(countdata)

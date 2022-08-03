@@ -19,6 +19,7 @@ export default function PomoCouter() {
       {!loading && !error && (
         <div className="container pomo-display mt-3">
           <div className="pomo-counter position-relative mx-auto">
+            {/* <h6 className="pomo-counter-title">Pomodoro Counter</h6> */}
             <div className="icon-container">
               <GiTomato className="tomato-icon" />
             </div>

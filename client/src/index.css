@@ -6,7 +6,7 @@
   --green-light: rgb(59, 247, 209);
   --blue-light: rgb(1, 206, 255);
   --purple-light: rgb(161, 119, 255);
-
+  --tomato: rgb(250, 88, 82);
   --pink-light: rgb(255, 109, 146);
   --green: rgb(59, 232, 176);
   --blue: rgb(26, 175, 208);
@@ -23,6 +23,7 @@
   --lilac: rgb(227, 98, 227);
   --sunflower: rgb(255, 226, 2);
   --rose-pink: rgb(252, 145, 173);
+  --dark-green: rgb(93, 162, 131);
 }
 
 body {
@@ -145,43 +146,25 @@ a.bn-view:hover {
 
 .todo-card {
   background: var(--green);
-  /* justify-content: space-between; */
+
   border: none;
   color: #fff;
-  /* background: linear-gradient(
-    90deg,
-    rgba(255, 118, 20, 1) 0%,
-    rgba(255, 84, 17, 1) 100%
-  ); */
 }
 
 .todo-card:nth-child(4n + 1) {
   background: var(--orange);
-  /* background: linear-gradient(
-    90deg,
-    rgba(93, 12, 255, 1) 0%,
-    rgba(155, 0, 250, 1) 100%
-  ); */
 }
 
 .todo-card:nth-child(4n + 2) {
   background: var(--yellow);
-  /* background: linear-gradient(
-    90deg,
-    rgba(255, 12, 241, 1) 0%,
-    rgba(250, 0, 135, 1) 100% );*/
 }
 
 .todo-card:nth-child(4n + 3) {
   background: var(--blue);
-  /* background: linear-gradient(
-    90deg,
-    rgba(20, 159, 255, 1) 0%,
-    rgba(17, 122, 255, 1) 100% );*/
 }
 /* weather page */
 .weather-container {
-  border: 2px solid var(--gray);
+  background-color: var(--gray);
 }
 .weather-card {
   max-width: 20rem;
@@ -189,7 +172,7 @@ a.bn-view:hover {
 input.search-weather {
   border: none;
   outline: 0;
-  border-bottom: 2px solid var(--green);
+  /* border-bottom: 2px solid var(--green); */
   text-align: center;
   font-size: 0.8em;
 }
@@ -213,16 +196,25 @@ div.pomo-display {
 .tomato-icon {
   width: 80px;
   height: 80px;
-  color: var(--orange);
+  color: var(--tomato);
   opacity: 0.9;
 }
 .counter {
   position: absolute;
-  color: var(--midnight);
+  color: #fff;
   font-size: 25px;
   top: 30px;
-  left: 42px;
+  left: 39px;
 }
+.btn-reset {
+  color: var(--dark-green);
+  font-weight: bold;
+}
+.btn-reset:hover {
+  color: var(--purple);
+}
+
+/* home projects */
 .project-row:hover {
   font-size: 1.1em;
   border-bottom: 1px solid white;
