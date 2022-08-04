@@ -5,7 +5,7 @@ import { UPDATE_TASK } from '../mutations/taskMutations'
 import DeleteTaskBtn from './DeleteTaskBtn'
 import { useEffect } from 'react'
 
-export default function TodoCard({ task }) {
+export default function TodoCard({ task, provided, snapshot }) {
   const id = task.id
   const todo = task.todo
   const [isCompleted, setIsCompleted] = useState(task.isCompleted)
@@ -35,7 +35,17 @@ export default function TodoCard({ task }) {
         </div>
       </div> */}
 
-      <li className="card todo-card mb-1 d-flex flex-row align-items-center p-2">
+      <li
+        key={task.id}
+        className={`card todo-card mb-1 d-flex flex-row align-items-center p-2 ${
+          snapshot.isDragging ? 'selected' : 'not-selected'
+        }`}
+        id="todoList"
+        {...provided.draggableProps}
+        ref={provided.innerRef}
+        {...provided.dragHandleProps}
+      >
+        {/* <a href={`#${task.id}`}> */}
         <div className="mx-2">
           <input
             id={task.id}
@@ -51,7 +61,12 @@ export default function TodoCard({ task }) {
         <div className="ms-auto">
           <DeleteTaskBtn task={task} />
         </div>
+        {/* </a> */}
       </li>
+
+      {/* <div class="target" id={task.id} role="tabpanel">
+        {task.todo}
+      </div> */}
     </>
   )
 }

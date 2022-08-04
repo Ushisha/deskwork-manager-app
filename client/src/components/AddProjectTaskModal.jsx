@@ -44,7 +44,7 @@ export default function AddProjectTaskModal({ projectId }) {
       <>
         <button
           type="button"
-          className="btn btn-primary"
+          className="btn btn-primary mb-3"
           data-bs-toggle="modal"
           data-bs-target="#addProjectTaskModal"
         >

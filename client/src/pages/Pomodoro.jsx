@@ -1,10 +1,13 @@
 //App
 import { useState, useEffect } from 'react'
-import Tasks from '../components/Tasks'
+import GetTasks from '../components/GetTasks'
 import PomoTimer from '../components/PomoTimer'
 import { useMutation, useQuery } from '@apollo/client'
 import { GET_COUNTER } from '../queries/counterQueries'
 import { UPDATE_COUNTER } from '../mutations/counterMutations'
+import { Link } from 'react-router-dom'
+import AddTaskModal from '../components/AddTaskModal'
+
 const Pomodoro = () => {
   const id = process.env.REACT_APP_COUNTER_ID
   const [isConfigure, setIsConfigure] = useState(false)
@@ -40,8 +43,18 @@ const Pomodoro = () => {
         countdata={data.counter.count}
         id={id}
       />
+      <div className="card mx-auto w-95 p-4 ">
+        <div className="card-body">
+          <div className="mb-3 mx-1 align-items-end">
+            <AddTaskModal />
+          </div>
+          <GetTasks />
+        </div>
 
-      <Tasks />
+        <Link to="/" className="btn btn-project btn-sm w-20 ms-auto">
+          Back
+        </Link>
+      </div>
 
       {/* {isConfigure && (
         <PomoConfig

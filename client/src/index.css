@@ -157,6 +157,9 @@ button.trash-btn {
   border: none;
   color: #fff;
 }
+.todo-card:target {
+  border-left: 0.5rem solid var(--blue);
+}
 
 .todo-card:nth-child(4n + 1) {
   background: var(--orange);
