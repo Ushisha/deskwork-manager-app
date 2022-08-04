@@ -15,7 +15,7 @@ export default function DeleteTaskBtn({ task }) {
   })
   return (
     <div className="d-flex align-items-center ms-auto">
-      <button className="btn" onClick={deleteTask}>
+      <button className="delete-btn" onClick={deleteTask}>
         <TiDelete className="delete-icon" />
       </button>
     </div>

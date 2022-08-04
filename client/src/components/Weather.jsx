@@ -3,11 +3,16 @@ import { useState } from 'react'
 import { fetchWeather } from '../api/fetchWeather'
 import Clock from '../components/Clock'
 import { TiWeatherPartlySunny } from 'react-icons/ti'
-
+import {
+  RiCloudy2Line,
+  RiSunCloudyLine,
+  RiSunLine,
+  RiRainyLine,
+} from 'react-icons/ri'
 import PomoCounter from './PomoCouter'
 
 function Weather() {
-  //set searching query by
+  //states
   const [query, setQuery] = useState('london')
   const [weather, setWeather] = useState({})
 
@@ -24,11 +29,10 @@ function Weather() {
   useEffect(() => {
     getWeather()
   }, [])
-
+  //handle city input search
   const search = async (e) => {
     if (e.key === 'Enter') {
       const data = await fetchWeather(query)
-      console.log(data)
       setWeather(data)
       //reset query input
       setQuery('')
@@ -36,6 +40,7 @@ function Weather() {
   }
 
   return (
+    //info card
     <div className="card text-center mx-auto weather-card mb-5">
       <div className="card-body">
         <Clock />

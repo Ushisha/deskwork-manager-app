@@ -21,10 +21,11 @@ export default function PomoCouter() {
           <div className="pomo-counter position-relative mx-auto">
             {/* <h6 className="pomo-counter-title">Pomodoro Counter</h6> */}
             <div className="icon-container">
-              <GiTomato className="tomato-icon" />
+              <a href="/pomodoro">
+                <GiTomato className="tomato-icon" />
+                <p className="lead counter fw-semibold">{data.counter.count}</p>
+              </a>
             </div>
-
-            <p className="lead counter fw-semibold">{data.counter.count}</p>
           </div>
           <CounterResetBtn id={id} />
         </div>

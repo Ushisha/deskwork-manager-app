@@ -178,6 +178,26 @@ const mutation = new GraphQLObjectType({
         return Task.findByIdAndRemove(args.id)
       },
     },
+    updateTask: {
+      type: TaskType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+        todo: { type: GraphQLString },
+        isCompleted: { type: new GraphQLNonNull(GraphQLBoolean) },
+      },
+      resolve(parent, args) {
+        return Task.findByIdAndUpdate(
+          args.id,
+          {
+            $set: {
+              todo: args.todo,
+              isCompleted: args.isCompleted,
+            },
+          },
+          { new: true }
+        )
+      },
+    },
     updateProject: {
       type: ProjectType,
       args: {

@@ -1,0 +1,69 @@
+# DeskworkFlow App
+
+This is a productivity web application built with MERN stack.
+
+## Table of contents
+
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+
+  - [Built with](#built-with)
+
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
+
+## Overview
+
+### Usage
+
+Users should be able to:
+
+- View the list of projects and tasks you are working on in one glance
+- Pomodoro timer to check your focus time and breaks
+- View the optimal layout for the content depending on their device’s screen size
+- See hover states for all interactive elements on the page
+- **Bonus**:
+
+### Screenshot
+
+![](./screenshot.jpg)
+
+### Links
+
+- Live Site URL: [URL here](https://live-site-url.com)
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- Responsive web design
+- [React](https://reactjs.org/) - JS library
+- [GraphQL](https://graphql.org/) - For API queries
+- [MongoDB Atlas](https://www.mongodb.com/atlas) - For cloud database
+- [Express](https://expressjs.com/) - For Node.js web application framework
+- [Bootstrap](https://getbootstrap.com/) - For styles
+- [Zapsplat](https://www.zapsplat.com/) - For sound effect
+
+### Continued development
+
+possibly add features like meditation timer page with sound effect
+
+### Useful resources
+
+- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
+- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+
+## Author
+
+- Website - [Ikuko Sawamoto](https://www.your-site.com)
+
+## Acknowledgments

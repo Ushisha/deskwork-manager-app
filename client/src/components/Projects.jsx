@@ -1,8 +1,6 @@
 import ProjectRow from './ProjectRow'
-import { GET_PROJECTS } from '../queries/projectQueries'
-
 import Spinner from './Spinner'
-
+import { GET_PROJECTS } from '../queries/projectQueries'
 import { useQuery } from '@apollo/client'
 
 export default function Projects() {
@@ -19,7 +17,7 @@ export default function Projects() {
         <thead>
           <tr>
             <th scope="col">Title</th>
-            {/* <th scope="col">Description</th> */}
+
             <th scope="col">Status</th>
             <th></th>
           </tr>

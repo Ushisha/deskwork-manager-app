@@ -4,7 +4,9 @@ import { BiDetail } from 'react-icons/bi'
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import { GET_PROJECTS } from '../queries/projectQueries'
 import { GET_TASKS } from '../queries/taskQueries'
+
 export default function ProjectRow({ project }) {
+  //get function to delete a Project & refresh projects list
   const [deleteProject] = useMutation(DELETE_PROJECT, {
     variables: { id: project.id },
     refetchQueries: [{ query: GET_PROJECTS }, { query: GET_TASKS }],
@@ -28,7 +30,8 @@ export default function ProjectRow({ project }) {
       <td>{project.status}</td>
       <td>
         <a className="btn btn-view" href={`/projects/${project.id}`}>
-          <BiDetail />
+          <BiDetail className="icon" />
+          view
         </a>
       </td>
       <td>

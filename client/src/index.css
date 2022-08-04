@@ -41,6 +41,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* header */
 .navbar {
   background-color: #fff;
 }
@@ -56,21 +57,18 @@ code {
 .home {
   background-color: var(--purple-light);
 }
-//home page
+/* home page */
 h1.projects {
   color: var(--purple);
 }
-
-input.task:checked {
-  background-color: var(--pink-light);
-  border: none;
+input[type='checkbox'] {
+  accent-color: var(--midnight);
 }
-/* 
+
 input.task:checked + * {
   text-decoration: line-through;
-} */
-
-.btn {
+}
+input .btn {
   font-size: 15px;
   border: none;
 }
@@ -84,7 +82,7 @@ input.task:checked + * {
   border: none;
 }
 
-.btn-primary:hover:focus {
+.btn-primary:hover {
   background-color: var(--midnight);
 }
 
@@ -95,9 +93,11 @@ input.task:checked + * {
 }
 
 .btn-secondary:hover {
-  background-color: var(--pink);
+  background-color: var(--yellow);
+  border: none;
 }
-//project page
+
+/* single project page */
 .btn-project {
   color: var(--text);
 }
@@ -106,6 +106,12 @@ input.task:checked + * {
 }
 .icon {
   margin-right: 5px;
+}
+.delete-btn {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
 }
 .delete-icon {
   width: 25px;
@@ -116,7 +122,6 @@ input.task:checked + * {
   color: var(--midnight);
 }
 
-//trash button
 .trash-container {
   height: 25px;
 }
@@ -125,6 +130,7 @@ button.trash-btn {
   height: 25px;
   right: 25px;
   top: 38px;
+  border: none;
 }
 .trash-icon {
   color: var(--text);
@@ -137,16 +143,17 @@ button.trash-btn {
   width: 25px;
   height: 25px;
 }
-a.btn-view {
-  color: #fff;
+.btn-link {
+  color: var(--pink);
+  width: 200px;
 }
-a.bn-view:hover {
-  cursor: pointer;
-}
+/* .pomo-span {
+  color: var(--text);
+} */
 
+/* task todocard component */
 .todo-card {
   background: var(--green);
-
   border: none;
   color: #fff;
 }
@@ -160,9 +167,10 @@ a.bn-view:hover {
 }
 
 .todo-card:nth-child(4n + 3) {
-  background: var(--blue);
+  background: var(--blue-light);
 }
-/* weather page */
+
+/* weather card homepage */
 .weather-container {
   background-color: var(--gray);
 }
@@ -172,17 +180,16 @@ a.bn-view:hover {
 input.search-weather {
   border: none;
   outline: 0;
-  /* border-bottom: 2px solid var(--green); */
   text-align: center;
   font-size: 0.8em;
 }
 input.search-weather:hover:focus:active {
   cursor: text;
 }
-//pomodoro display
+/* pomoCounter - homepage */
 div.pomo-display {
-  height: 800px;
-  width: 100px;
+  height: 150px;
+  width: 120px;
 }
 .pomo-counter {
   display: block;
@@ -199,12 +206,15 @@ div.pomo-display {
   color: var(--tomato);
   opacity: 0.9;
 }
+.tomato-icon:hover {
+  color: var(--purple);
+}
 .counter {
   position: absolute;
   color: #fff;
   font-size: 25px;
   top: 30px;
-  left: 39px;
+  left: 30px;
 }
 .btn-reset {
   color: var(--dark-green);
@@ -214,58 +224,37 @@ div.pomo-display {
   color: var(--purple);
 }
 
-/* home projects */
-.project-row:hover {
-  font-size: 1.1em;
-  border-bottom: 1px solid white;
-}
+/*projectRow -home*/
 .project-row {
-  background: var(--sunflower);
-  /* justify-content: space-between; */
+  background: var(--green);
   border: none;
   color: #fff;
-  /* background: linear-gradient(
-    90deg,
-    rgba(255, 118, 20, 1) 0%,
-    rgba(255, 84, 17, 1) 100%
-  ); */
 }
-
+.project-row:hover {
+  color: var(--text);
+  border-bottom: 1px solid white;
+}
 .project-row:nth-child(5n + 1) {
   background: var(--purple);
-  /* background: linear-gradient(
-    90deg,
-    rgba(93, 12, 255, 1) 0%,
-    rgba(155, 0, 250, 1) 100%
-  ); */
 }
-
 .project-row:nth-child(5n + 2) {
   background: var(--pink-light);
-  /* background: linear-gradient(
-    90deg,
-    rgba(93, 12, 255, 1) 0%,
-    rgba(155, 0, 250, 1) 100%
-  ); */
 }
 .project-row:nth-child(5n + 3) {
-  background: #2ccafa;
-  /* background: linear-gradient(
-    90deg,
-    rgba(93, 12, 255, 1) 0%,
-    rgba(155, 0, 250, 1) 100%
-  ); */
+  background: var(--orange);
 }
 .project-row:nth-child(5n + 4) {
-  background: var(--green);
-  /* background: linear-gradient(
-    90deg,
-    rgba(93, 12, 255, 1) 0%,
-    rgba(155, 0, 250, 1) 100%
-  ); */
+  background: var(--blue);
 }
 
-/* Timer */
+a.btn-view {
+  color: #fff;
+}
+a.bn-view:hover {
+  cursor: pointer;
+}
+
+/* pomoTimer config btns -pomodoro*/
 .btn-refresh {
   color: var(--text);
 
@@ -287,7 +276,7 @@ div.pomo-display {
 .play-icon:hover {
   fill: var(--pink);
 }
-
+/*timer display */
 .main__section--title {
   position: relative;
   width: 350px;
@@ -309,6 +298,7 @@ div.btn__section {
 .modal-open {
   positon: relative;
 }
+/* tomatoCase pomodoro */
 .tomato {
   color: #fd612b;
   height: 35px;

@@ -22,6 +22,7 @@ export default function PomoTimer(props) {
     countdata,
     id,
   } = props
+  //state
   const [isPlay, setIsPlay] = useState(false)
   const [isBreak, setIsBreak] = useState(false)
   const [minutes, setMinutes] = useState()
@@ -104,7 +105,8 @@ export default function PomoTimer(props) {
       _setRemainingTimeinMs(pomoBreak * 60000)
     }
   }, [pomodoro, pomoBreak, isBreak])
-  //useEffect
+
+  //end of session/break useeffect
   useEffect(() => {
     if (
       minutes === '00' &&
@@ -206,7 +208,7 @@ export default function PomoTimer(props) {
           </button>
         </div>
       </div>
-      <TomatoCase tomatoCount={count} />
+      <TomatoCase tomatoCount={count} id={id} />
     </>
   )
 }

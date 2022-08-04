@@ -7,6 +7,7 @@ export default function Clock() {
   function refreshClock() {
     setDate(new Date())
   }
+
   useEffect(() => {
     const timerId = setInterval(refreshClock, 1000)
     return function cleanup() {
@@ -16,25 +17,27 @@ export default function Clock() {
 
   return (
     <>
-      <div className="container text-center ">
-        <p className="lead">
-          <p className="mb-0">
+      <div className="container text-center">
+        <div className="lead">
+          <div className="mb-0">
             <FaRegCalendar className="icon" />
+          </div>
+          <p>
+            {date.toLocaleDateString('en-GB', {
+              day: 'numeric',
+              month: 'short',
+              year: 'numeric',
+            })}
           </p>
-          {date.toLocaleDateString('en-GB', {
-            day: 'numeric',
-            month: 'short',
-            year: 'numeric',
-          })}
-        </p>
-      </div>
+        </div>
 
-      <p className="display-6">
-        {/* <p className="mb-0">
+        <p className="display-6">
+          {/* <p className="mb-0">
           <FaRegClock />
         </p> */}
-        {date.toLocaleTimeString('en-GB')}
-      </p>
+          {date.toLocaleTimeString('en-GB')}
+        </p>
+      </div>
     </>
   )
 }

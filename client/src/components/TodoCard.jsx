@@ -3,42 +3,55 @@ import { useMutation } from '@apollo/client'
 import { GET_TASK } from '../queries/taskQueries'
 import { UPDATE_TASK } from '../mutations/taskMutations'
 import DeleteTaskBtn from './DeleteTaskBtn'
+import { useEffect } from 'react'
+
 export default function TodoCard({ task }) {
-  // const [status, setStatus] = useState(task.status)
+  const id = task.id
+  const todo = task.todo
+  const [isCompleted, setIsCompleted] = useState(task.isCompleted)
 
-  // const [updateTask] = useMutation(UPDATE_TASK, {
-  //   variables: { id: task.id, todo: task.todo, status },
-  //   refetchQueries: { query: GET_TASK, variables: { id: task.id } },
-  // })
+  const [updateTask] = useMutation(UPDATE_TASK, {
+    variables: { id: task.id, todo, isCompleted },
+    refetchQueries: { query: GET_TASK, variables: { id: task.id } },
+  })
 
-  // const handleChange = (e) => {
-  //   if (e.target.checked) {
-  //     setStatus('completed')
-  //   } else {
-  //     setStatus('new')
-  //   }
-  //   updateTask(status)
-  // }
+  const handleCheckboxChange = (e) => {
+    if (e.target.checked) {
+      setIsCompleted(true)
+    } else {
+      setIsCompleted(false)
+    }
+  }
+  useEffect(() => {
+    updateTask(id, todo, isCompleted)
+  }, [isCompleted])
+
   return (
     <>
-      <div class="card mb-2 todo-card" key={task.id}>
-        <div class="card-body p-2 d-flex align-items-center">
+      {/* <div className="card mb-2 todo-card" key={task.id}>
+        <div className="card-body p-2 d-flex align-items-center">
           {task.todo}
           <DeleteTaskBtn task={task} />
         </div>
-      </div>
-      {/* <li className="list-group-item">
-        <input
-          className="form-check-input me-1 task"
-          type="checkbox"
-          onChange={handleChange}
-          value=""
-          id={task.id}
-        />
-        <label className="form-check-label" htmlFor={task.id}>
-         
-        </label>
-      </li> */}
+      </div> */}
+
+      <li className="card todo-card mb-1 d-flex flex-row align-items-center p-2">
+        <div className="mx-2">
+          <input
+            id={task.id}
+            type="checkbox"
+            defaultChecked={task.isCompleted}
+            onChange={(e) => handleCheckboxChange(e)}
+            className="task"
+          />
+          <label className="todo-label mx-2" htmlFor={task.id}>
+            {task.todo}
+          </label>
+        </div>
+        <div className="ms-auto">
+          <DeleteTaskBtn task={task} />
+        </div>
+      </li>
     </>
   )
 }

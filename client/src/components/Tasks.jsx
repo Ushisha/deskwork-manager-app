@@ -4,6 +4,7 @@ import { GET_TASKS } from '../queries/taskQueries'
 import TodoCard from './TodoCard'
 import AddTaskModal from './AddTaskModal'
 import { Link } from 'react-router-dom'
+
 export default function Tasks() {
   const { loading, error, data } = useQuery(GET_TASKS)
   if (loading) return <Spinner />
@@ -18,11 +19,15 @@ export default function Tasks() {
           </div>
 
           {data.tasks.length > 0 ? (
-            <div className="row mx-1">
+            <ul
+              role="list"
+              className="todo-list p-0"
+              aria-labelledby="list-heading"
+            >
               {data.tasks.map((task) => (
                 <TodoCard key={task.id} task={task} />
               ))}
-            </div>
+            </ul>
           ) : (
             <p>No Tasks</p>
           )}

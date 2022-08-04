@@ -21,7 +21,6 @@ export default function Home() {
             </div>
 
             <Projects />
-            {/* <Tasks /> */}
           </div>
         </div>
       </div>
