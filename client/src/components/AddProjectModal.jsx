@@ -74,6 +74,7 @@ export default function AddProjectModal() {
                   <label className="form-label">Project Title</label>
                   <input
                     type="text"
+                    autoComplete="off"
                     className="form-control"
                     id="name"
                     value={name}
@@ -83,6 +84,7 @@ export default function AddProjectModal() {
                 <div className="mb-3">
                   <label className="form-label">Description / Notes</label>
                   <textarea
+                    autoComplete="off"
                     className="form-control"
                     id="description"
                     rows="3"

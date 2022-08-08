@@ -14,6 +14,7 @@ import { GrRefresh } from 'react-icons/gr'
 import TomatoCase from './TomatoCase'
 
 export default function PomoTimer(props) {
+  const circumference = 45 * 2 * Math.PI
   const {
     updateConfigure,
     pomodoro,
@@ -29,6 +30,8 @@ export default function PomoTimer(props) {
   const [seconds, setSeconds] = useState()
   const [_interval, _setInterval] = useState(0)
   const [_remainingTimeinMs, _setRemainingTimeinMs] = useState(0)
+  const [_circleDasharray, _setCircleDasharray] = useState(circumference)
+  const [remainingPathColor, setRemainingPathColor] = useState('orange')
   /**
    * All about the sounds
    */
@@ -36,8 +39,9 @@ export default function PomoTimer(props) {
   const [_pauseTimer] = useSound(pause)
   const [_timesUp] = useSound(timesUp)
 
+  // update pomo counter
   const [count, setCount] = useState(countdata)
-
+  // set start display time
   const configureTime = (_session, _break) => {
     if (!isBreak) {
       _session < 10 ? setMinutes(`0${_session}`) : setMinutes(pomodoro)
@@ -46,14 +50,29 @@ export default function PomoTimer(props) {
       _break < 10 ? setMinutes(`0${_break}`) : setMinutes(_break)
       setSeconds('00')
     }
+    _setCircleDasharray(circumference)
+    setRemainingPathColor('orange')
   }
+  // Update the dasharray value as time passes, starting with 283
+  function updateDasharray(time) {
+    return ((_remainingTimeinMs / time) * 283).toFixed(0)
+  }
+
   /**
    * Countdown function to count the time.
    */
   const countDownFunction = (_endTime) => {
     let remainingTimeinMs = _endTime - Date.now()
     _setRemainingTimeinMs(remainingTimeinMs)
+
     let remainingTimeinS = Math.round(remainingTimeinMs / 1000)
+    let fulltimeinSc
+    !isBreak ? (fulltimeinSc = pomodoro * 60) : (fulltimeinSc = pomoBreak * 60)
+    let timeFraction = remainingTimeinS / fulltimeinSc
+    timeFraction = timeFraction - (1 / fulltimeinSc) * (1 - timeFraction)
+    let circleDasharray = (timeFraction * circumference).toFixed(0)
+    _setCircleDasharray(circleDasharray)
+    console.log(circleDasharray)
     //Preparing for the two digits minutes & seconds
     let _tempMinute = Math.floor(remainingTimeinS / 60)
     let _tempSeconds = Math.floor(remainingTimeinS % 60)
@@ -61,7 +80,11 @@ export default function PomoTimer(props) {
     _tempSeconds < 10
       ? setSeconds(`0${_tempSeconds}`)
       : setSeconds(_tempSeconds)
+    if (_tempMinute < 1 && !isBreak) {
+      setRemainingPathColor('red')
+    }
   }
+
   // Changing the play/pause btn
   const changePlayBtn = () => {
     if (minutes === '00' && seconds === '00') return
@@ -86,16 +109,18 @@ export default function PomoTimer(props) {
     clearInterval(_interval)
     setIsPlay(false)
     setIsBreak(false)
+    setRemainingPathColor('orange')
     _setRemainingTimeinMs(pomodoro * 60000)
   }
-  // const changeConfigure = () => {
-  //   restartFunction()
-  //   updateConfigure(true)
-  // }
+  const changeConfigure = () => {
+    restartFunction()
+    updateConfigure(true)
+  }
   // ChangingConfigure
   // useEffect(() => {
   //   setCount(countdata)
   // }, [])
+  // Divides time left by the defined time limit.
 
   useEffect(() => {
     configureTime(pomodoro, pomoBreak)
@@ -118,6 +143,8 @@ export default function PomoTimer(props) {
       clearInterval(_interval)
       setIsPlay(false)
       setIsBreak(!isBreak)
+      setRemainingPathColor('orange')
+
       if (!isBreak) {
         setCount(count + 1)
       }
@@ -153,6 +180,19 @@ export default function PomoTimer(props) {
                   cy="50"
                   r="45"
                 />
+                {/*  strokeDasharray={`${circleDasharray} 283`} */}
+                <path
+                  stroke={remainingPathColor}
+                  strokeDasharray={` ${_circleDasharray} ${circumference}`}
+                  id="timer-path-remaining"
+                  className="timer__path-remaining"
+                  d="
+          M 50, 50
+          m -45, 0
+          a 45,45 0 1,0 90,0
+          a 45,45 0 1,0 -90,0
+        "
+                ></path>
               </g>
             </svg>
           </div>

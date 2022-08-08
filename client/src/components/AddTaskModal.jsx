@@ -82,6 +82,7 @@ export default function AddTaskModal() {
                       <label className="form-label">Task</label>
                       <input
                         type="text"
+                        autoComplete="off"
                         className="form-control"
                         id="name"
                         value={todo}

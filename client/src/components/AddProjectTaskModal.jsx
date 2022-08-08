@@ -8,7 +8,7 @@ export default function AddProjectTaskModal({ projectId }) {
   //get task values from form
   const [todo, setTodo] = useState('')
   const [isCompleted, setIsCompleted] = useState(false)
-
+  //get addTask function from mutation
   const [addTask] = useMutation(ADD_TASK, {
     variables: { todo, isCompleted, projectId },
     update(cache, { data: { addTask } }) {
@@ -21,10 +21,10 @@ export default function AddProjectTaskModal({ projectId }) {
     },
   })
   //get project for select
-  // const { loading, error, data } = useQuery(GET_PROJECTS)
+  //  const { loading, error, data } = useQuery(GET_PROJECTS)
 
-  // if (loading) return null
-  // if (error) return 'Somthing went wrong...'
+  //   if (loading) return null
+  //  if (error) return 'Somthing went wrong...'
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -79,6 +79,7 @@ export default function AddProjectTaskModal({ projectId }) {
                     <label className="form-label">Task</label>
                     <input
                       type="text"
+                      autoComplete="off"
                       className="form-control"
                       id="name"
                       value={todo}

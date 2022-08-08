@@ -1,11 +1,14 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useMutation } from '@apollo/client'
 import { GET_TASK } from '../queries/taskQueries'
 import { UPDATE_TASK } from '../mutations/taskMutations'
-import DeleteTaskBtn from './DeleteTaskBtn'
+import { TiDelete } from 'react-icons/ti'
+
+import { GET_TASKS } from '../queries/taskQueries'
+import { DELETE_TASK } from '../mutations/taskMutations'
 import { useEffect } from 'react'
 
-export default function TodoCard({ task, provided, snapshot }) {
+export default function TodoCard({ task }) {
   const id = task.id
   const todo = task.todo
   const [isCompleted, setIsCompleted] = useState(task.isCompleted)
@@ -13,6 +16,20 @@ export default function TodoCard({ task, provided, snapshot }) {
   const [updateTask] = useMutation(UPDATE_TASK, {
     variables: { id: task.id, todo, isCompleted },
     refetchQueries: { query: GET_TASK, variables: { id: task.id } },
+  })
+  const [deleteTask] = useMutation(DELETE_TASK, {
+    variables: { id: task.id },
+    // onCompleted: () => navigate('/'),
+    // refetchQueries: [{ query: GET_TASKS }],
+    update(cache, { data: { deleteTask } }) {
+      const { tasks } = cache.readQuery({ query: GET_TASKS })
+      cache.writeQuery({
+        query: GET_TASKS,
+        data: {
+          tasks: tasks.filter((task) => task.id !== deleteTask.id),
+        },
+      })
+    },
   })
 
   const handleCheckboxChange = (e) => {
@@ -37,15 +54,9 @@ export default function TodoCard({ task, provided, snapshot }) {
 
       <li
         key={task.id}
-        className={`card todo-card mb-1 d-flex flex-row align-items-center p-2 ${
-          snapshot.isDragging ? 'selected' : 'not-selected'
-        }`}
+        className="card todo-card mb-1 d-flex flex-row align-items-center p-2"
         id="todoList"
-        {...provided.draggableProps}
-        ref={provided.innerRef}
-        {...provided.dragHandleProps}
       >
-        {/* <a href={`#${task.id}`}> */}
         <div className="mx-2">
           <input
             id={task.id}
@@ -59,9 +70,12 @@ export default function TodoCard({ task, provided, snapshot }) {
           </label>
         </div>
         <div className="ms-auto">
-          <DeleteTaskBtn task={task} />
+          <div className="d-flex align-items-center ms-auto">
+            <button className="delete-btn" onClick={deleteTask}>
+              <TiDelete className="delete-icon" />
+            </button>
+          </div>
         </div>
-        {/* </a> */}
       </li>
 
       {/* <div class="target" id={task.id} role="tabpanel">

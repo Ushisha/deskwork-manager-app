@@ -1,11 +1,18 @@
 import { useMutation } from '@apollo/client'
+import { useState } from 'react'
 import { DELETE_PROJECT } from '../mutations/projectMutations'
-import { BiDetail } from 'react-icons/bi'
+import {
+  BsFillArrowUpRightCircleFill,
+  BsFillArrowDownRightCircleFill,
+  BsFillArrowUpCircleFill,
+} from 'react-icons/bs'
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import { GET_PROJECTS } from '../queries/projectQueries'
 import { GET_TASKS } from '../queries/taskQueries'
+import { useEffect, useRef } from 'react'
 
 export default function ProjectRow({ project }) {
+  const [icon, setIcon] = useState('up')
   //get function to delete a Project & refresh projects list
   const [deleteProject] = useMutation(DELETE_PROJECT, {
     variables: { id: project.id },
@@ -25,21 +32,26 @@ export default function ProjectRow({ project }) {
 
   return (
     <tr className="project-row">
-      <td>{project.name}</td>
+      <td className="lead fs-4">{project.name}</td>
 
       <td>{project.status}</td>
       <td>
-        <a className="btn btn-view" href={`/projects/${project.id}`}>
-          <BiDetail className="icon" />
-          view
+        <a
+          className="btn-view"
+          href={`/projects/${project.id}`}
+          onMouseEnter={() => setIcon('down')}
+          onMouseLeave={() => setIcon('up')}
+        >
+          {icon === 'up' ? (
+            <BsFillArrowUpRightCircleFill className="view-icon" />
+          ) : (
+            <BsFillArrowUpCircleFill className="view-icon" />
+          )}
         </a>
       </td>
       <td>
-        <button
-          className="btn btn-outline-danger btn-sm"
-          onClick={deleteProject}
-        >
-          <RiDeleteBin6Line />
+        <button className="btn-project-trash" onClick={deleteProject}>
+          <RiDeleteBin6Line className="trash-icon-sm" />
         </button>
       </td>
     </tr>

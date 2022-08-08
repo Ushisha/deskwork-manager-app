@@ -3,8 +3,8 @@ import { FaTimesCircle } from 'react-icons/fa'
 const PomoConfig = (props) => {
   // Destructuring 2 functions
   const { updateConfigure, updatePomodoro } = props
-  const [pomodoro, setPomodoro] = useState('')
-  const [pomoBreak, setPomoBreak] = useState('')
+  const [pomodoro, setPomodoro] = useState(25)
+  const [pomoBreak, setPomoBreak] = useState(5)
   // onSubmitFunction Function
   const onSubmit = (e) => {
     e.preventDefault()
@@ -107,6 +107,7 @@ const PomoConfig = (props) => {
                   type="submit"
                   data-bs-dismiss="modal"
                   className="btn btn-secondary"
+                  onSubmit={updateConfigure}
                 >
                   Apply
                 </button>

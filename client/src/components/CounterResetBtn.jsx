@@ -23,7 +23,7 @@ export default function CounterRestBtn({ id }) {
 
   return (
     <>
-      <button className="btn btn-reset" onClick={handleReset}>
+      <button className="btn btn-reset fw-normal" onClick={handleReset}>
         Reset
       </button>
     </>

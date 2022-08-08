@@ -75,6 +75,7 @@ export default function EditProjectForm({ project }) {
                   <label className="form-label">Project Title</label>
                   <input
                     type="text"
+                    autoComplete="off"
                     className="form-control"
                     id="name"
                     value={name}
@@ -85,6 +86,7 @@ export default function EditProjectForm({ project }) {
                   <label className="form-label">Description / Notes</label>
                   <textarea
                     className="form-control"
+                    autoComplete="off"
                     id="description"
                     rows="3"
                     value={description}

@@ -19,6 +19,7 @@ export default function Projects() {
             <th scope="col">Title</th>
 
             <th scope="col">Status</th>
+            <th>View</th>
             <th></th>
           </tr>
         </thead>

@@ -60,7 +60,7 @@ possibly add features like meditation timer page with sound effect
 ### Useful resources
 
 - [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [How to Create an Animated Countdown Timer With HTML, CSS and JavaScript](https://css-tricks.com/how-to-create-an-animated-countdown-timer-with-html-css-and-javascript/#top-of-site) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
 ## Author
 

@@ -11,8 +11,8 @@ import AddTaskModal from '../components/AddTaskModal'
 const Pomodoro = () => {
   const id = process.env.REACT_APP_COUNTER_ID
   const [isConfigure, setIsConfigure] = useState(false)
-  const [pomodoro, setPomodoro] = useState(0)
-  const [pomoBreak, setPomoBreak] = useState(0)
+  const [pomodoro, setPomodoro] = useState(25)
+  const [pomoBreak, setPomoBreak] = useState(5)
 
   const updateConfigure = (bool) => {
     setIsConfigure(bool)

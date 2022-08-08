@@ -8,5 +8,5 @@ export default function GetTasks() {
   if (loading) return <Spinner />
   if (error) return <p>Something went wrong...</p>
 
-  return <>{!loading && !error && <Tasks data={data.tasks} />}</>
+  return <>{!loading && !error && <Tasks tasks={data.tasks} />}</>
 }

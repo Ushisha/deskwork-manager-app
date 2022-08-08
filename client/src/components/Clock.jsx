@@ -17,12 +17,12 @@ export default function Clock() {
 
   return (
     <>
-      <div className="container text-center">
-        <div className="lead">
-          <div className="mb-0">
-            <FaRegCalendar className="icon" />
-          </div>
-          <p>
+      <div className="container text-center clock-info">
+        <div className=" d-flex align-items-center justify-content-center lead ">
+          {/* <div className="mb-1">
+            <FaRegCalendar className="icon calendar-icon" />
+          </div> */}
+          <p className="mb-0 fs-3">
             {date.toLocaleDateString('en-GB', {
               day: 'numeric',
               month: 'short',
@@ -30,13 +30,13 @@ export default function Clock() {
             })}
           </p>
         </div>
+        <div className="d-flex align-items-center justify-content-center lead">
+          {/* <div className="mb-1">
+            <FaRegClock className="icon clock-icon" />
+          </div> */}
 
-        <p className="display-6">
-          {/* <p className="mb-0">
-          <FaRegClock />
-        </p> */}
-          {date.toLocaleTimeString('en-GB')}
-        </p>
+          <p className="mb-0 fs-4">{date.toLocaleTimeString('en-GB')}</p>
+        </div>
       </div>
     </>
   )

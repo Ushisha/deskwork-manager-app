@@ -10,7 +10,11 @@ import EditProjectForm from '../components/EditProjectForm'
 
 export default function Project() {
   const { id } = useParams()
-  const { loading, error, data } = useQuery(GET_PROJECT, { variables: { id } })
+  const { loading, error, data } = useQuery(GET_PROJECT, {
+    variables: { id },
+    // fetchPolicy: 'network-only',
+    // nextFetchPolicy: 'cache-only',
+  })
 
   if (loading) return <Spinner />
   if (error) return <p>Something went wrong...</p>

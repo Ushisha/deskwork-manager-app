@@ -36,7 +36,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+/* .lead {
+  font-weight: 500;
+} */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -88,6 +90,7 @@ input .btn {
 
 .btn-secondary {
   background-color: var(--midnight);
+
   color: #fff;
   outline: none;
 }
@@ -98,6 +101,10 @@ input .btn {
 }
 
 /* single project page */
+th {
+  font-weight: 400;
+  border-bottom: 3px solid var(--yellow);
+}
 .btn-project {
   color: var(--text);
 }
@@ -132,10 +139,22 @@ button.trash-btn {
   top: 38px;
   border: none;
 }
+button.btn-project-trash {
+  border: none;
+  background: inherit;
+}
 .trash-icon {
   color: var(--text);
   width: 22px;
   height: 22px;
+}
+.trash-icon-sm {
+  color: #646f79;
+  width: 20px;
+  height: 20px;
+}
+.trash-icon-sm:hover {
+  color: var(--tomato);
 }
 
 .trash-icon:hover {
@@ -175,21 +194,37 @@ button.trash-btn {
 
 /* weather card homepage */
 .weather-container {
-  background-color: var(--gray);
 }
 .weather-card {
-  max-width: 20rem;
 }
 input.search-weather {
   border: none;
   outline: 0;
   text-align: center;
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 input.search-weather:hover:focus:active {
   cursor: text;
 }
-/* pomoCounter - homepage */
+
+.weather-icon {
+  width: 50px;
+  height: 50px;
+}
+.cloudy {
+  color: var(--sky-blue);
+}
+.sunny {
+  color: var(--yellow);
+}
+.rainy {
+  color: var(--dark-blue);
+}
+.temp {
+  font-size: 25px;
+}
+
+/* info cardpomoCounter - homepage */
 div.pomo-display {
   height: 150px;
   width: 120px;
@@ -208,6 +243,7 @@ div.pomo-display {
   height: 80px;
   color: var(--tomato);
   opacity: 0.9;
+  transition: color 0.7s;
 }
 .tomato-icon:hover {
   color: var(--purple);
@@ -219,6 +255,7 @@ div.pomo-display {
   top: 30px;
   left: 30px;
 }
+
 .btn-reset {
   color: var(--dark-green);
   font-weight: bold;
@@ -227,34 +264,66 @@ div.pomo-display {
   color: var(--purple);
 }
 
+.pomo-title {
+  color: var(--orange);
+}
+/* .calendar-icon {
+  color: var(--lilac);
+}
+.clock-icon {
+  color: var(--blue);
+} */
+/* .clock-info {
+  font-weight: bold;
+} */
+
 /*projectRow -home*/
-.project-row {
-  background: var(--green);
-  border: none;
-  color: #fff;
-}
-.project-row:hover {
-  color: var(--text);
-  border-bottom: 1px solid white;
-}
-.project-row:nth-child(5n + 1) {
-  background: var(--purple);
-}
-.project-row:nth-child(5n + 2) {
-  background: var(--pink-light);
-}
-.project-row:nth-child(5n + 3) {
-  background: var(--orange);
-}
-.project-row:nth-child(5n + 4) {
-  background: var(--blue);
+table {
+  border-collapse: separate;
+  border-spacing: 0 1em;
 }
 
-a.btn-view {
-  color: #fff;
+.project-row {
+  border: 3px solid var(--green);
+  color: var(--text);
+
+  /* border: none; */
 }
-a.bn-view:hover {
-  cursor: pointer;
+/* table, th, td  */
+.project-row:hover {
+  /* background-color: (--green-light); */
+}
+.project-row:nth-child(5n + 1) {
+  border: 3px solid var(--purple);
+  /* background: var(--purple); */
+}
+.project-row:nth-child(5n + 2) {
+  border: 3px solid var(--pink-light);
+  /* background: var(--pink-light); */
+}
+.project-row:nth-child(5n + 3) {
+  border: 3px solid var(--orange);
+  /* background: var(--orange); */
+}
+.project-row:nth-child(5n + 4) {
+  border: 3px solid var(--blue);
+  /* background: var(--blue); */
+}
+.view-icon {
+  color: var(--yellow);
+  width: 25px;
+  height: 25px;
+}
+
+.view-icon:hover {
+  color: var(--sky-blue);
+}
+
+/* tomatoCase pomodoro */
+.tomato {
+  color: #fd612b;
+  height: 35px;
+  width: 35px;
 }
 
 /* pomoTimer config btns -pomodoro*/
@@ -294,16 +363,39 @@ a.bn-view:hover {
 h1.time {
   font-size: 50px;
 }
+.timer--svg {
+  transform: scaleX(-1);
+}
+
+#timer-path-remaining {
+  /* fill: transparent; */
+
+  stroke-linecap: round;
+  stroke-width: 7px;
+  transition: 0.5s;
+  /* transform: rotate(-90deg);
+  transform-origin: 50% 50%; */
+
+  /* Makes sure the animation starts at the top of the circle */
+  transform: rotate(90deg);
+
+  transform-origin: center;
+  /* One second aligns with the speed of the countdown timer */
+  transition: 1s linear all;
+}
+
 div.btn__section {
   position: relative;
 }
-.fade,
-.modal-open {
-  positon: relative;
+
+/* Removes SVG styling that would hide the time label */
+.base-timer__circle {
+  fill: none;
+  stroke: none;
 }
-/* tomatoCase pomodoro */
-.tomato {
-  color: #fd612b;
-  height: 35px;
-  width: 35px;
+
+/* The SVG path that displays the timer's progress  */
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+  stroke: grey;
 }
