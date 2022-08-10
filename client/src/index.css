@@ -54,7 +54,9 @@ code {
   font-family: 'Montserrat Alternates', sans-serif;
 }
 .nav-icon {
-  color: var(--rose-pink);
+  /* color: var(--rose-pink); */
+  width: 25px;
+  height: 25px;
 }
 .home {
   background-color: var(--purple-light);
@@ -257,9 +259,9 @@ div.pomo-display {
 .counter {
   position: absolute;
   color: #fff;
-  font-size: 25px;
-  top: 30px;
-  left: 29px;
+  font-size: 28px;
+  top: 28px;
+  left: 32px;
 }
 
 .btn-reset {

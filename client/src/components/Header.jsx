@@ -1,5 +1,6 @@
 // import logo from '../assets/logo.png'
 import { GiTomato } from 'react-icons/gi'
+import { ReactComponent as PomoPIcon } from '../assets/pomo-pink.svg'
 function Header() {
   return (
     <>
@@ -12,7 +13,8 @@ function Header() {
           >
             {/* <img src="/src/assets/logo.png" alt="" width="30" height="24"></img> */}
 
-            <GiTomato className="icon my-auto nav-icon" />
+            <PomoPIcon className="icon my-auto nav-icon" />
+
             <p className="mb-0">PomoFlow</p>
           </a>
           <button

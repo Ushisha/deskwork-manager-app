@@ -1,8 +1,8 @@
 import { useQuery } from '@apollo/client'
-import { useState } from 'react'
+import React from 'react'
 import { GET_COUNTER } from '../queries/counterQueries'
 import { createPopper } from '@popperjs/core'
-
+import { ReactComponent as PomoIcon } from '../assets/pomo.svg'
 import { GiTomato } from 'react-icons/gi'
 import CounterResetBtn from './CounterResetBtn'
 
@@ -24,7 +24,8 @@ export default function PomoCouter() {
             {/* <h6 className="pomo-counter-title">Pomodoro Counter</h6> */}
             <div className="icon-container">
               <a href="/pomodoro" id="tomato">
-                <GiTomato className="tomato-icon" />
+                {/* <GiTomato className="tomato-icon" /> */}
+                <PomoIcon className="tomato-icon" />
                 <p className="lead counter fw-semibold">{data.counter.count}</p>
               </a>
             </div>

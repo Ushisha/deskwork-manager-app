@@ -5,7 +5,7 @@ PomoFlow is a Pomodoro Technique integrated productivity app that works on deskt
 ## Table of contents
 
 - [Overview](#overview)
-  - [Usage & Functionalities](#usage)
+  - [Usage & Features](#usage)
   - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
@@ -19,7 +19,7 @@ PomoFlow is a Pomodoro Technique integrated productivity app that works on deskt
 
 ## Overview
 
-### Usage & Functionalities
+### Usage & Features
 
 1. Decide on the task to work on selecting from the task list
 2. Set pomodoro and break timer.
@@ -40,6 +40,7 @@ PomoFlow is a Pomodoro Technique integrated productivity app that works on deskt
 - Color transition to switch moods between focus time and break time
 - weather card to check today's weather focus to help plan the day ahead
 - timer circle bar change the colour as progress.
+- Ability to delete all related tasks with a project deletion.
 
 ### Screenshot
 
@@ -64,18 +65,19 @@ PomoFlow is a Pomodoro Technique integrated productivity app that works on deskt
 - [Bootstrap](https://getbootstrap.com/) - For styles
 - [Zapsplat](https://www.zapsplat.com/) - For sound effect
 - [React-icons](react-icons/) - For icons
-- [Figma](https://www.figma.com/) - For favicon design
+- [Figma](https://www.figma.com/) - For favicon & logo design
 - [OpenWeather](https://openweathermap.org/) - For weather API
 
 ### Continued development
 
-possibly add features like meditation timer page with sound effect. I also thinking of adding register and log in functionality to store the users' info and create visual data and daily logs.
-functionality to group tasks in today's todo.
-rearrangibility of task lists.
+Add register & log-in functionality to store the users' info and create visual data and functionality to add daily logs.
+Functionality to group up tasks in today's to-do.
+Rearangibility of task and project lists according to priorities.
+Possibly add features like a meditation timer mode with sound & visual effects.
 
 ### Useful resources
 
-- [Flexbox cheetsheet](https://flexbox.malven.co/) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
+- [How to use SVGs in React](https://blog.logrocket.com/how-to-use-svgs-in-react/) - This helped me for working with SVG i have created through Figma. I really liked this pattern and will use it going forward.
 - [How to Create an Animated Countdown Timer With HTML, CSS and JavaScript](https://css-tricks.com/how-to-create-an-animated-countdown-timer-with-html-css-and-javascript/#top-of-site) - This is an amazing article which helped me finally understand SVG animation. I'd recommend it to anyone still learning this concept.
 
 ## Acknowledgments
