@@ -1,12 +1,10 @@
-//Main
 import { useState, useEffect } from 'react'
 import { UPDATE_COUNTER } from '../mutations/counterMutations'
 import { GET_COUNTER } from '../queries/counterQueries'
 import { useMutation } from '@apollo/client'
 import PomoConfig from './PomoConfig'
-// Importing the useSound Hooks
+
 import useSound from 'use-sound'
-//Importing the sounds
 import startTimer from '../assets/sounds/startTimer.mp3'
 import pause from '../assets/sounds/pause.mp3'
 import timesUp from '../assets/sounds/timesUp.mp3'
@@ -51,11 +49,7 @@ export default function PomoTimer(props) {
       setSeconds('00')
     }
     _setCircleDasharray(circumference)
-    setRemainingPathColor('orange')
-  }
-  // Update the dasharray value as time passes, starting with 283
-  function updateDasharray(time) {
-    return ((_remainingTimeinMs / time) * 283).toFixed(0)
+    isBreak ? setRemainingPathColor('green') : setRemainingPathColor('orange')
   }
 
   /**
@@ -72,7 +66,7 @@ export default function PomoTimer(props) {
     timeFraction = timeFraction - (1 / fulltimeinSc) * (1 - timeFraction)
     let circleDasharray = (timeFraction * circumference).toFixed(0)
     _setCircleDasharray(circleDasharray)
-    console.log(circleDasharray)
+    // console.log(circleDasharray)
     //Preparing for the two digits minutes & seconds
     let _tempMinute = Math.floor(remainingTimeinS / 60)
     let _tempSeconds = Math.floor(remainingTimeinS % 60)
@@ -80,7 +74,9 @@ export default function PomoTimer(props) {
     _tempSeconds < 10
       ? setSeconds(`0${_tempSeconds}`)
       : setSeconds(_tempSeconds)
-    if (_tempMinute < 1 && !isBreak) {
+    if (_tempMinute < 15 && _tempMinute >= 5 && !isBreak) {
+      setRemainingPathColor('blue')
+    } else if (_tempMinute < 5 && !isBreak) {
       setRemainingPathColor('red')
     }
   }
@@ -143,7 +139,7 @@ export default function PomoTimer(props) {
       clearInterval(_interval)
       setIsPlay(false)
       setIsBreak(!isBreak)
-      setRemainingPathColor('orange')
+      // isBreak ? setRemainingPathColor('blue') : setRemainingPathColor('orange')
 
       if (!isBreak) {
         setCount(count + 1)
@@ -164,7 +160,7 @@ export default function PomoTimer(props) {
     <>
       <div className="">
         {/* main timer section */}
-        <div className="main__section--title mx-auto">
+        <div className="main__section--title mx-auto mb-2">
           <div className="timer">
             <svg
               className="timer--svg"

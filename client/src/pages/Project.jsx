@@ -26,7 +26,7 @@ export default function Project() {
           <DeleteProjectBtn projectId={data.project.id} />
           <div className="card-body">
             <EditProjectForm project={data.project} />
-            <h1>{data.project.name}</h1>
+            <h1 className="text-capitalize">{data.project.name}</h1>
             <p>{data.project.description}</p>
             <h4 className="mt-3">Status</h4>
             <p className="lead">{data.project.status}</p>

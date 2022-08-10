@@ -60,7 +60,7 @@ code {
   background-color: var(--purple-light);
 }
 /* home page */
-h1.projects {
+h3.projects {
   color: var(--purple);
 }
 input[type='checkbox'] {
@@ -196,9 +196,12 @@ button.btn-project-trash {
 .weather-container {
 }
 .weather-card {
+  max-width: 280px;
 }
+
 input.search-weather {
-  border: none;
+  border: 2px solid var(--green-light);
+  border-radius: 10px;
   outline: 0;
   text-align: center;
   font-size: 0.9em;
@@ -225,6 +228,9 @@ input.search-weather:hover:focus:active {
 }
 
 /* info cardpomoCounter - homepage */
+.info-card {
+  max-width: 280px;
+}
 div.pomo-display {
   height: 150px;
   width: 120px;
@@ -253,7 +259,7 @@ div.pomo-display {
   color: #fff;
   font-size: 25px;
   top: 30px;
-  left: 30px;
+  left: 29px;
 }
 
 .btn-reset {
@@ -266,6 +272,27 @@ div.pomo-display {
 
 .pomo-title {
   color: var(--orange);
+}
+@media only screen and (max-width: 580px) {
+  .weather-card {
+    width: 170px;
+  }
+  /* .weather-icon {
+    width: 35px;
+    height: 35px;
+  } */
+  .temp {
+    font-size: 20px;
+  }
+  .info-card {
+    width: 170px;
+  }
+  p.date-display {
+    font-size: 20px;
+  }
+  input.search-weather {
+    width: 100px;
+  }
 }
 /* .calendar-icon {
   color: var(--lilac);
@@ -280,7 +307,7 @@ div.pomo-display {
 /*projectRow -home*/
 table {
   border-collapse: separate;
-  border-spacing: 0 1em;
+  border-spacing: 0;
 }
 
 .project-row {
@@ -398,4 +425,7 @@ div.btn__section {
 .base-timer__path-elapsed {
   stroke-width: 7px;
   stroke: grey;
+}
+.about-page-container {
+  max-width: 1000px;
 }

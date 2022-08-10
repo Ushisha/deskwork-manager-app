@@ -10,6 +10,8 @@ function Header() {
             href="/"
             id="logo"
           >
+            {/* <img src="/src/assets/logo.png" alt="" width="30" height="24"></img> */}
+
             <GiTomato className="icon my-auto nav-icon" />
             <p className="mb-0">PomoFlow</p>
           </a>

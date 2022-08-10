@@ -22,7 +22,7 @@ export default function Clock() {
           {/* <div className="mb-1">
             <FaRegCalendar className="icon calendar-icon" />
           </div> */}
-          <p className="mb-0 fs-3">
+          <p className="date-display mb-0 fs-3">
             {date.toLocaleDateString('en-GB', {
               day: 'numeric',
               month: 'short',
@@ -35,7 +35,9 @@ export default function Clock() {
             <FaRegClock className="icon clock-icon" />
           </div> */}
 
-          <p className="mb-0 fs-4">{date.toLocaleTimeString('en-GB')}</p>
+          <p className="mb-0 fs-4 time-display">
+            {date.toLocaleTimeString('en-GB')}
+          </p>
         </div>
       </div>
     </>

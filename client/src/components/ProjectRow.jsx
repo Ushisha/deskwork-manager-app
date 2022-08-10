@@ -32,7 +32,7 @@ export default function ProjectRow({ project }) {
 
   return (
     <tr className="project-row">
-      <td className="lead fs-4">{project.name}</td>
+      <td className="lead fs-5 text-capitalize">{project.name}</td>
 
       <td>{project.status}</td>
       <td>

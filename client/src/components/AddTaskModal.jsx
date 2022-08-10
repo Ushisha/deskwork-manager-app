@@ -90,19 +90,6 @@ export default function AddTaskModal() {
                       />
                     </div>
 
-                    {/* <div className="col-md-4 mb-3">
-                      <label className="form-label">Status</label>
-                      <select
-                        id="status"
-                        className="form-select"
-                        value={status}
-                        onChange={(e) => setStatus(e.target.value)}
-                      >
-                        <option value="new">Not started</option>
-                        <option value="progress">In Progress</option>
-                        <option value="completed">Completed</option>
-                      </select>
-                    </div> */}
                     <div className="mb-3">
                       <label className="form-label">Project</label>
                       <select

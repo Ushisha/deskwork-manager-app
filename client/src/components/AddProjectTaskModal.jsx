@@ -35,7 +35,7 @@ export default function AddProjectTaskModal({ projectId }) {
 
     addTask(todo, isCompleted, projectId)
     setTodo('')
-    // setProjectId('')
+
     setIsCompleted(false)
   }
   return (
@@ -87,35 +87,6 @@ export default function AddProjectTaskModal({ projectId }) {
                     />
                   </div>
 
-                  {/* <div className="col-md-4 mb-3">
-                      <label className="form-label">Status</label>
-                      <select
-                        id="status"
-                        className="form-select"
-                        value={status}
-                        onChange={(e) => setStatus(e.target.value)}
-                      >
-                        <option value="new">Not started</option>
-                        <option value="progress">In Progress</option>
-                        <option value="completed">Completed</option>
-                      </select>
-                    </div> */}
-                  {/* <div className="mb-3">
-                      <label className="form-label">Project</label>
-                      <select
-                        value={projectId}
-                        id="projectId"
-                        className="form-select"
-                        onChange={(e) => setProjectId(e.target.value)}
-                      >
-                        <option value="">Select Project</option>
-                        {data.projects.map((project) => (
-                          <option key={project.id} value={project.id}>
-                            {project.name}
-                          </option>
-                        ))}
-                      </select>
-                    </div> */}
                   <div className="mt-4">
                     <button
                       type="submit"
