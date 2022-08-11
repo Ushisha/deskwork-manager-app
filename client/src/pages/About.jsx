@@ -23,16 +23,7 @@ export default function AboutPage() {
           The technique aims to reduce the effect of internal and external
           interruptions on focus and flow.
         </p>
-        {/* <p className="fs-5 fw-light">
-          After task completion in a pomodoro, any remaining time should be
-          devoted to activities, for example: Review your work just completed.
-          Review the activities from a learning point of view (ex: What learning
-          objective did you accomplish? What learning outcome did you
-          accomplish? Did you fulfill your learning target, objective, or
-          outcome for the task?) Review the list of upcoming tasks for the next
-          planned pomodoro time blocks, and start reflecting on or updating
-          them.
-        </p> */}
+
         <h3 className="">How to use PomoFlow?</h3>
         <ol className="fs-5 fw-light">
           <li>Create projects and set tasks.</li>

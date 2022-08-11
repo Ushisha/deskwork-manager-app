@@ -2,6 +2,7 @@ import Spinner from './Spinner'
 import { useQuery } from '@apollo/client'
 import { GET_TASKS } from '../queries/taskQueries'
 import Tasks from './Tasks'
+
 export default function GetTasks() {
   const { loading, error, data } = useQuery(GET_TASKS)
 

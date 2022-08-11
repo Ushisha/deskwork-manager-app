@@ -9,7 +9,6 @@ import {
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import { GET_PROJECTS } from '../queries/projectQueries'
 import { GET_TASKS } from '../queries/taskQueries'
-import { useEffect, useRef } from 'react'
 
 export default function ProjectRow({ project }) {
   const [icon, setIcon] = useState('up')
@@ -17,24 +16,24 @@ export default function ProjectRow({ project }) {
   const [deleteProject] = useMutation(DELETE_PROJECT, {
     variables: { id: project.id },
     refetchQueries: [{ query: GET_PROJECTS }, { query: GET_TASKS }],
-    // update(cache, { data: { deleteProject } }) {
-    //   const { projects } = cache.readQuery({ query: GET_PROJECTS })
-    //   cache.writeQuery({
-    //     query: GET_PROJECTS,
-    //     data: {
-    //       projects: projects.filter(
-    //         (project) => project.id !== deleteProject.id
-    //       ),
-    //     },
-    //   })
-    // },
+    
   })
 
   return (
     <tr className="project-row">
       <td className="lead fs-5 text-capitalize">{project.name}</td>
 
-      <td>{project.status}</td>
+      <td
+        className={`fs-6 fw-light  ${
+          project.status === 'In Progress'
+            ? `pink`
+            : project.status === 'Not Started'
+            ? `blue`
+            : 'green'
+        }`}
+      >
+        {project.status}
+      </td>
       <td>
         <a
           className="btn-view"

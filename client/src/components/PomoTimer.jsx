@@ -3,13 +3,13 @@ import { UPDATE_COUNTER } from '../mutations/counterMutations'
 import { GET_COUNTER } from '../queries/counterQueries'
 import { useMutation } from '@apollo/client'
 import PomoConfig from './PomoConfig'
+import { GrRefresh } from 'react-icons/gr'
+import TomatoCase from './TomatoCase'
 
 import useSound from 'use-sound'
 import startTimer from '../assets/sounds/startTimer.mp3'
 import pause from '../assets/sounds/pause.mp3'
 import timesUp from '../assets/sounds/timesUp.mp3'
-import { GrRefresh } from 'react-icons/gr'
-import TomatoCase from './TomatoCase'
 
 export default function PomoTimer(props) {
   const circumference = 45 * 2 * Math.PI
@@ -21,6 +21,7 @@ export default function PomoTimer(props) {
     countdata,
     id,
   } = props
+
   //state
   const [isPlay, setIsPlay] = useState(false)
   const [isBreak, setIsBreak] = useState(false)
@@ -30,9 +31,8 @@ export default function PomoTimer(props) {
   const [_remainingTimeinMs, _setRemainingTimeinMs] = useState(0)
   const [_circleDasharray, _setCircleDasharray] = useState(circumference)
   const [remainingPathColor, setRemainingPathColor] = useState('orange')
-  /**
-   * All about the sounds
-   */
+
+  // All about the sounds
   const [_startTimer] = useSound(startTimer)
   const [_pauseTimer] = useSound(pause)
   const [_timesUp] = useSound(timesUp)
@@ -52,9 +52,7 @@ export default function PomoTimer(props) {
     isBreak ? setRemainingPathColor('green') : setRemainingPathColor('orange')
   }
 
-  /**
-   * Countdown function to count the time.
-   */
+  //  Countdown function to count the time
   const countDownFunction = (_endTime) => {
     let remainingTimeinMs = _endTime - Date.now()
     _setRemainingTimeinMs(remainingTimeinMs)
@@ -66,7 +64,7 @@ export default function PomoTimer(props) {
     timeFraction = timeFraction - (1 / fulltimeinSc) * (1 - timeFraction)
     let circleDasharray = (timeFraction * circumference).toFixed(0)
     _setCircleDasharray(circleDasharray)
-    // console.log(circleDasharray)
+
     //Preparing for the two digits minutes & seconds
     let _tempMinute = Math.floor(remainingTimeinS / 60)
     let _tempSeconds = Math.floor(remainingTimeinS % 60)
@@ -112,11 +110,6 @@ export default function PomoTimer(props) {
     restartFunction()
     updateConfigure(true)
   }
-  // ChangingConfigure
-  // useEffect(() => {
-  //   setCount(countdata)
-  // }, [])
-  // Divides time left by the defined time limit.
 
   useEffect(() => {
     configureTime(pomodoro, pomoBreak)
@@ -139,7 +132,6 @@ export default function PomoTimer(props) {
       clearInterval(_interval)
       setIsPlay(false)
       setIsBreak(!isBreak)
-      // isBreak ? setRemainingPathColor('blue') : setRemainingPathColor('orange')
 
       if (!isBreak) {
         setCount(count + 1)
@@ -176,7 +168,6 @@ export default function PomoTimer(props) {
                   cy="50"
                   r="45"
                 />
-                {/*  strokeDasharray={`${circleDasharray} 283`} */}
                 <path
                   stroke={remainingPathColor}
                   strokeDasharray={` ${_circleDasharray} ${circumference}`}

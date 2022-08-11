@@ -1,4 +1,4 @@
-// const { projects, tasks } = require('../sampleData.js')
+
 //mongoose models
 const Project = require('../models/Project')
 const Task = require('../models/Task')
@@ -26,9 +26,6 @@ const ProjectType = new GraphQLObjectType({
     description: { type: GraphQLString },
     status: { type: GraphQLString },
 
-    // return arr.filter((task) => task.
-    // const todos = tasks.filter((task) => task.projectId === parent.id)
-    // return todos
   }),
 })
 //create task type
@@ -42,7 +39,7 @@ const TaskType = new GraphQLObjectType({
       type: ProjectType,
       resolve(parent, args) {
         return Project.findById(parent.projectId)
-        // return projects.find((project) => project.id === parent.projectId)
+       
       },
     },
   }),
@@ -73,7 +70,7 @@ const RootQuery = new GraphQLObjectType({
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         return Project.findById(args.id)
-        // return projects.find((project) => project.id === args.id)
+        
       },
     },
     tasks: {
@@ -87,7 +84,7 @@ const RootQuery = new GraphQLObjectType({
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         return Task.findById(args.id)
-        // return tasks.find((task) => task.id === args.id)
+        
       },
     },
     counter: {

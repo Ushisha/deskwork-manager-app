@@ -1,12 +1,10 @@
-import { useState, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import { useMutation } from '@apollo/client'
 import { GET_TASK } from '../queries/taskQueries'
 import { UPDATE_TASK } from '../mutations/taskMutations'
-import { TiDelete } from 'react-icons/ti'
-
 import { GET_TASKS } from '../queries/taskQueries'
 import { DELETE_TASK } from '../mutations/taskMutations'
-import { useEffect } from 'react'
+import { TiDelete } from 'react-icons/ti'
 
 export default function TodoCard({ task }) {
   const id = task.id
@@ -19,8 +17,7 @@ export default function TodoCard({ task }) {
   })
   const [deleteTask] = useMutation(DELETE_TASK, {
     variables: { id: task.id },
-    // onCompleted: () => navigate('/'),
-    // refetchQueries: [{ query: GET_TASKS }],
+
     update(cache, { data: { deleteTask } }) {
       const { tasks } = cache.readQuery({ query: GET_TASKS })
       cache.writeQuery({
@@ -45,13 +42,6 @@ export default function TodoCard({ task }) {
 
   return (
     <>
-      {/* <div className="card mb-2 todo-card" key={task.id}>
-        <div className="card-body p-2 d-flex align-items-center">
-          {task.todo}
-          <DeleteTaskBtn task={task} />
-        </div>
-      </div> */}
-
       <li
         key={task.id}
         className="card todo-card mb-1 d-flex flex-row align-items-center p-2"
@@ -77,10 +67,6 @@ export default function TodoCard({ task }) {
           </div>
         </div>
       </li>
-
-      {/* <div class="target" id={task.id} role="tabpanel">
-        {task.todo}
-      </div> */}
     </>
   )
 }

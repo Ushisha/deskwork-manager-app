@@ -1,8 +1,7 @@
-//App
 import { useState, useEffect } from 'react'
 import GetTasks from '../components/GetTasks'
 import PomoTimer from '../components/PomoTimer'
-import { useMutation, useQuery } from '@apollo/client'
+import { useQuery } from '@apollo/client'
 import { GET_COUNTER } from '../queries/counterQueries'
 import { UPDATE_COUNTER } from '../mutations/counterMutations'
 import { Link } from 'react-router-dom'
@@ -55,13 +54,6 @@ const Pomodoro = () => {
           Back
         </Link>
       </div>
-
-      {/* {isConfigure && (
-        <PomoConfig
-          updateConfigure={updateConfigure}
-          updatePomodoro={updatePomodoro}
-        />
-      )} */}
     </>
   )
 }

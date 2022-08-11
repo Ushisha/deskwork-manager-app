@@ -34,8 +34,6 @@ export default function AddTaskModal() {
     if (todo === '' || projectId === '') {
       return alert('Please fill in the all fields')
     }
-    console.log(todo, isCompleted, projectId)
-
     addTask(todo, isCompleted, projectId)
     setTodo('')
     setProjectId('')

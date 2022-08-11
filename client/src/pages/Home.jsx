@@ -1,9 +1,8 @@
-import React from 'react'
 import AddProjectModal from '../components/AddProjectModal'
 import Projects from '../components/Projects'
 import Weather from '../components/Weather'
 import InfoCard from '../components/InfoCard'
-// import Tasks from '../components/Tasks'
+
 export default function Home() {
   return (
     <>

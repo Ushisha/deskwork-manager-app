@@ -20,11 +20,6 @@ export default function AddProjectTaskModal({ projectId }) {
       })
     },
   })
-  //get project for select
-  //  const { loading, error, data } = useQuery(GET_PROJECTS)
-
-  //   if (loading) return null
-  //  if (error) return 'Somthing went wrong...'
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -40,7 +35,6 @@ export default function AddProjectTaskModal({ projectId }) {
   }
   return (
     <>
-      {/* {!loading && !error && ( */}
       <>
         <button
           type="button"
@@ -102,7 +96,6 @@ export default function AddProjectTaskModal({ projectId }) {
           </div>
         </div>
       </>
-      {/* )} */}
     </>
   )
 }

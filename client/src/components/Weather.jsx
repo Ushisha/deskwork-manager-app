@@ -1,16 +1,8 @@
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { fetchWeather } from '../api/fetchWeather'
-
-import { TiWeatherPartlySunny } from 'react-icons/ti'
-import {
-  RiCloudy2Line,
-  RiSunCloudyLine,
-  RiSunLine,
-  RiRainyLine,
-} from 'react-icons/ri'
+import { RiCloudy2Line, RiSunLine } from 'react-icons/ri'
 import { BsCloudRain } from 'react-icons/bs'
-import PomoCounter from './PomoCouter'
 
 function Weather() {
   //states
@@ -30,6 +22,7 @@ function Weather() {
   useEffect(() => {
     getWeather()
   }, [])
+
   //handle city input search
   const search = async (e) => {
     if (e.key === 'Enter') {
@@ -78,7 +71,6 @@ function Weather() {
                     <p className=" min m-1">
                       L {Math.round(weather.main.temp_min)}&deg;C
                     </p>
-                    {/* <p className="m-0"></p> */}
                   </div>
                   {/* <small>Humidity {weather.main.humidity}%</small>
                 <p className="m-0">
@@ -102,28 +94,6 @@ function Weather() {
           </div>
         </div>
       </div>
-      {/* small devise info */}
-      {/* <div class="container mt-3 d-block d-sm-block d-md-block d-lg-none d-xl-none d-xxl-none">
-        {weather.main && (
-          <div className="small-weather-info d-flex align-items-center">
-            <div className="icons">
-              {weather.weather[0].main === 'Clear' ? (
-                <RiSunLine className="weather-icon sunny" />
-              ) : weather.weather[0].main === 'Clouds' ? (
-                <RiCloudy2Line className="weather-icon cloudy" />
-              ) : weather.weather[0].main === 'Rain' ? (
-                <BsCloudRain className="weather-icon rainy" />
-              ) : (
-                <p>{weather.weather[0].main}</p>
-              )}
-            </div>
-            <p className="lead temp mb-0">
-              {Math.round(weather.main.temp)}
-              &deg;C
-            </p>
-          </div>
-        )}
-      </div> */}
     </>
   )
 }

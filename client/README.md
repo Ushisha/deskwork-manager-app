@@ -67,6 +67,8 @@ PomoFlow is a Pomodoro Technique integrated productivity app that works on deskt
 - [React-icons](react-icons/) - For icons
 - [Figma](https://www.figma.com/) - For favicon & logo design
 - [OpenWeather](https://openweathermap.org/) - For weather API
+- [Axios](https://axios-http.com/) - Javascript library to make HTTP requests
+- [useSound](https://www.npmjs.com/package/use-sound) - For sound effect
 
 ### Continued development
 

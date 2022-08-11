@@ -9,6 +9,7 @@
   --tomato: rgb(250, 88, 82);
   --pink-light: rgb(255, 109, 146);
   --green: rgb(59, 232, 176);
+  --leaf: rgb(100, 171, 49);
   --blue: rgb(26, 175, 208);
   --purple: rgb(106, 103, 206);
   --yellow: rgb(255, 185, 1);
@@ -24,6 +25,8 @@
   --sunflower: rgb(255, 226, 2);
   --rose-pink: rgb(252, 145, 173);
   --dark-green: rgb(93, 162, 131);
+  --aqua: rgb(21, 170, 245);
+  --bright-pink: rgb(247, 50, 173);
 }
 
 body {
@@ -36,50 +39,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* .lead {
-  font-weight: 500;
-} */
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-/* header */
-.navbar {
-  background-color: #fff;
-}
-.navbar-brand {
-  color: var(--midnight);
-  font-weight: 600;
-  font-size: 28px;
-  font-family: 'Montserrat Alternates', sans-serif;
-}
-.nav-icon {
-  /* color: var(--rose-pink); */
-  width: 25px;
-  height: 25px;
-}
-.home {
-  background-color: var(--purple-light);
-}
-/* home page */
-h3.projects {
-  color: var(--purple);
-}
-input[type='checkbox'] {
-  accent-color: var(--midnight);
-}
-
-input.task:checked + * {
-  text-decoration: line-through;
-}
-input .btn {
-  font-size: 15px;
-  border: none;
-}
-.btn:hover {
-  font-size: 15px;
-}
-
 .btn-primary,
 .bg-primary {
   background-color: var(--pink);
@@ -102,11 +66,43 @@ input .btn {
   border: none;
 }
 
-/* single project page */
-th {
-  font-weight: 400;
-  border-bottom: 3px solid var(--yellow);
+/* header */
+.navbar {
+  background-color: #fff;
 }
+.navbar-brand {
+  color: var(--midnight);
+  font-weight: 600;
+  font-size: 28px;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+.nav-icon {
+  width: 25px;
+  height: 25px;
+}
+/* .home {
+  background-color: var(--purple-light);
+} */
+/* home page */
+
+/* todo task list */
+input[type='checkbox'] {
+  accent-color: var(--midnight);
+}
+
+input.task:checked + * {
+  text-decoration: line-through;
+}
+input .btn {
+  font-size: 15px;
+  border: none;
+}
+.btn:hover {
+  font-size: 15px;
+}
+
+/* single project page */
+
 .btn-project {
   color: var(--text);
 }
@@ -168,9 +164,6 @@ button.btn-project-trash {
   color: var(--pink);
   width: 200px;
 }
-/* .pomo-span {
-  color: var(--text);
-} */
 
 /* task todocard component */
 .todo-card {
@@ -195,21 +188,20 @@ button.btn-project-trash {
 }
 
 /* weather card homepage */
-.weather-container {
-}
 .weather-card {
   max-width: 280px;
 }
 
 input.search-weather {
-  border: 2px solid var(--green-light);
+  border: 2px solid var(--blue-light);
   border-radius: 10px;
   outline: 0;
   text-align: center;
   font-size: 0.9em;
 }
-input.search-weather:hover:focus:active {
+input.search-weather:hover {
   cursor: text;
+  border: 2px solid var(--green-light);
 }
 
 .weather-icon {
@@ -229,7 +221,7 @@ input.search-weather:hover:focus:active {
   font-size: 25px;
 }
 
-/* info cardpomoCounter - homepage */
+/* info card pomoCounter - homepage */
 .info-card {
   max-width: 280px;
 }
@@ -249,12 +241,16 @@ div.pomo-display {
 .tomato-icon {
   width: 80px;
   height: 80px;
-  color: var(--tomato);
   opacity: 0.9;
   transition: color 0.7s;
 }
-.tomato-icon:hover {
-  color: var(--purple);
+.tomato-body {
+  fill: var(--tomato);
+  fill-opacity: 1;
+}
+.tomato-body:hover {
+  fill: var(--green);
+  transition: fill 0.8s;
 }
 .counter {
   position: absolute;
@@ -279,10 +275,7 @@ div.pomo-display {
   .weather-card {
     width: 170px;
   }
-  /* .weather-icon {
-    width: 35px;
-    height: 35px;
-  } */
+
   .temp {
     font-size: 20px;
   }
@@ -296,47 +289,49 @@ div.pomo-display {
     width: 100px;
   }
 }
-/* .calendar-icon {
-  color: var(--lilac);
-}
-.clock-icon {
-  color: var(--blue);
-} */
-/* .clock-info {
-  font-weight: bold;
-} */
 
 /*projectRow -home*/
+/* projects table */
+h3.projects {
+  color: var(--purple);
+}
+
 table {
   border-collapse: separate;
   border-spacing: 0;
 }
 
+th {
+  font-weight: 400;
+  border-bottom: 3px solid var(--yellow);
+}
+
+.pink {
+  color: var(--orange);
+}
+.green {
+  color: var(--leaf);
+}
+.blue {
+  color: var(--text);
+}
+
 .project-row {
   border: 3px solid var(--green);
   color: var(--text);
+}
 
-  /* border: none; */
-}
-/* table, th, td  */
-.project-row:hover {
-  /* background-color: (--green-light); */
-}
 .project-row:nth-child(5n + 1) {
   border: 3px solid var(--purple);
-  /* background: var(--purple); */
 }
 .project-row:nth-child(5n + 2) {
   border: 3px solid var(--pink-light);
-  /* background: var(--pink-light); */
 }
 .project-row:nth-child(5n + 3) {
   border: 3px solid var(--orange);
-  /* background: var(--orange); */
 }
 .project-row:nth-child(5n + 4) {
   border: 3px solid var(--blue);
-  /* background: var(--blue); */
 }
 .view-icon {
   color: var(--yellow);
@@ -350,9 +345,13 @@ table {
 
 /* tomatoCase pomodoro */
 .tomato {
-  color: #fd612b;
-  height: 35px;
-  width: 35px;
+  height: 33px;
+  width: 33px;
+  margin: 0.1em;
+}
+
+.tomato-case-container .small-tomato-icon {
+  fill: var(--tomato);
 }
 
 /* pomoTimer config btns -pomodoro*/
@@ -397,13 +396,9 @@ h1.time {
 }
 
 #timer-path-remaining {
-  /* fill: transparent; */
-
   stroke-linecap: round;
   stroke-width: 7px;
   transition: 0.5s;
-  /* transform: rotate(-90deg);
-  transform-origin: 50% 50%; */
 
   /* Makes sure the animation starts at the top of the circle */
   transform: rotate(90deg);
@@ -428,6 +423,8 @@ div.btn__section {
   stroke-width: 7px;
   stroke: grey;
 }
+
+/* about page */
 .about-page-container {
   max-width: 1000px;
 }
