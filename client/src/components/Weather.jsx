@@ -8,7 +8,6 @@ function Weather() {
   //states
   const [query, setQuery] = useState('london')
   const [weather, setWeather] = useState({})
-
   const getWeather = async () => {
     try {
       const data = await fetchWeather(query)

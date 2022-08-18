@@ -1,13 +1,15 @@
 # PomoFlow App
 
-PomoFlow is a Pomodoro Technique integrated productivity app that works on desktop & mobile browsers built with MERN stack.
+PomoFlow is a Pomodoro Technique integrated productivity app that works on desktop & mobile browsers built with React, Express, MongoDB and graphQL.<br/>
+I decided to use the MERN stack as I want to create an app with a database to store all the projects and tasks, which users can add, delete and update.<br/>
+Also, I believe MERN can act the best in controlling and updating dynamic JSON data that can smoothly navigate between the front and backend.
 
 ## Table of contents
 
 - [Overview](#overview)
-  - [Usage & Features](#usage)
+  - [Description](#description)
   - [Screenshot](#screenshot)
-  - [Links](#links)
+    - [Links](#video-demo)
 - [My process](#my-process)
 
   - [Built with](#built-with)
@@ -17,15 +19,13 @@ PomoFlow is a Pomodoro Technique integrated productivity app that works on deskt
 
 ## Overview
 
-### Usage & Features
+#### Description:
 
 1. Decide on the task to work on selecting from the task list
 2. Set pomodoro and break timer.
 3. Start the timer and focus on the task.
 4. Take a break for 5 minutes when the alarm ring.
 5. 1x pomodoro( = tomato) added to your counter at the end of each pomodoro.
-
----
 
 - Pause, resume and reset timer
 - Circular progress indicator
@@ -44,7 +44,9 @@ PomoFlow is a Pomodoro Technique integrated productivity app that works on deskt
 
 ![](/client/src/assets/images/screenshot.png)
 
-#### Video Demo: <URL HERE>
+#### Video Demo
+
+[YouTube Link](https://youtu.be/KnNdU1fb0tw)
 
 ## My process
 
