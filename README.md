@@ -44,10 +44,6 @@ Also, I believe MERN can act the best in controlling and updating dynamic JSON d
 
 ![](/client/src/assets/images/screenshot.png)
 
-#### Video Demo
-
-[YouTube Link](https://youtu.be/KnNdU1fb0tw)
-
 ## My process
 
 ### Built with
@@ -70,10 +66,10 @@ Also, I believe MERN can act the best in controlling and updating dynamic JSON d
 
 ### Continued development
 
-Add register & log-in functionality to store the users' info and create visual data and functionality to add daily logs.
-Functionality to group up tasks in today's to-do.
-Rearangibility of task and project lists according to priorities.
-Possibly add features like a meditation timer mode with sound & visual effects.
+- Add register & log-in functionality to store the users' info and create visual data and functionality to add daily logs.
+- Functionality to group up tasks in today's to-do.
+- Rearangibility of task and project lists according to priorities.
+- Possibly add features like a meditation timer mode with sound & visual effects.
 
 ### Useful resources
 
