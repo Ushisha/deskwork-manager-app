@@ -1,20 +1,16 @@
 # PomoFlow App
 
 PomoFlow is a Pomodoro Technique integrated productivity app that works on desktop & mobile browsers built with React, Express, MongoDB and graphQL.<br/>
-I decided to use the MERN stack as I want to create an app with a database to store all the projects and tasks, which users can add, delete and update.<br/>
-Also, I believe MERN can act the best in controlling and updating dynamic JSON data that can smoothly navigate between the front and backend.
 
 ## Table of contents
 
 - [Overview](#overview)
   - [Description](#description)
   - [Screenshot](#screenshot)
-    - [Links](#video-demo)
 - [My process](#my-process)
 
   - [Built with](#built-with)
 
-  - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 
 ## Overview
@@ -63,13 +59,6 @@ Also, I believe MERN can act the best in controlling and updating dynamic JSON d
 - [OpenWeather](https://openweathermap.org/) - For weather API
 - [Axios](https://axios-http.com/) - Javascript library to make HTTP requests
 - [useSound](https://www.npmjs.com/package/use-sound) - For sound effect
-
-### Continued development
-
-- Add register & log-in functionality to store the users' info and create visual data and functionality to add daily logs.
-- Functionality to group up tasks in today's to-do.
-- Rearangibility of task and project lists according to priorities.
-- Possibly add features like a meditation timer mode with sound & visual effects.
 
 ### Useful resources
 
