@@ -7,10 +7,10 @@ PomoFlow is a Pomodoro Technique integrated productivity app that works on deskt
 - [Overview](#overview)
   - [Description](#description)
   - [Screenshot](#screenshot)
+  - [Video demo](#video-demo)
 - [My process](#my-process)
 
   - [Built with](#built-with)
-
   - [Useful resources](#useful-resources)
 
 ## Overview
@@ -38,7 +38,11 @@ PomoFlow is a Pomodoro Technique integrated productivity app that works on deskt
 
 ### Screenshot
 
-![](/client/src/assets/images/screenshot.png)
+![](/client/src/assets/images/screenshot2.png)
+
+### Video Demo
+
+[![Video Demo](/client/src/assets/images/screenshot.png)](https://youtu.be/vIlNPTA80oM)
 
 ## My process
 
