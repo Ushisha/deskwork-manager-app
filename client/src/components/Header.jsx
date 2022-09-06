@@ -1,4 +1,5 @@
 import { ReactComponent as PomoPIcon } from '../assets/pomo-pink.svg'
+import { Link } from 'react-router-dom'
 function Header() {
   return (
     <>
@@ -41,6 +42,11 @@ function Header() {
                   About
                 </a>
               </li>
+
+              <div>
+                <Link to="/login">Login</Link>
+                <Link to="/Signup">Signup</Link>
+              </div>
             </ul>
           </div>
         </div>

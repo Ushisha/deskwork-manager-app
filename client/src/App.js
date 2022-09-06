@@ -6,6 +6,8 @@ import Pomodoro from './pages/Pomodoro'
 import { ApolloProvider, InMemoryCache, ApolloClient } from '@apollo/client'
 import Home from './pages/Home'
 import AboutPage from './pages/About'
+import Login from './pages/Login'
+import Signup from './pages/Signup'
 
 const cache = new InMemoryCache({
   typePolicies: {
@@ -44,6 +46,8 @@ function App() {
               <Route path="/projects/:id" element={<Project />} />
               <Route path="/pomodoro" element={<Pomodoro />} />
               <Route path="/about" element={<AboutPage />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
             </Routes>
           </div>
         </Router>
